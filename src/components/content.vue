@@ -10,9 +10,7 @@
 </template>
 
 <script>
-
-import {mapMutations} from 'vuex'	
-
+import {mapMutations} from 'vuex'
 export default {
 	data() {
 		return {datas: []}
@@ -35,7 +33,7 @@ export default {
 	.increment {
 		width: 100%;
 		height: 50px;
-		text-align: : center;
+		text-align: center;
 		line-height: 50px;
 		font-size: 30px;
 		cursor: pointer;

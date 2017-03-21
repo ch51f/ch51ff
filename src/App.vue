@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import MyHeader from './components/header';
-import MyFooter from './components/footer';
-import MyHome from './components/home';
+import MyHeader from './components/header.vue';
+import MyFooter from './components/footer.vue';
+import MyHome from './components/home.vue';
 
 export default {
 	name: 'app',
