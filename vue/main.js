@@ -1,9 +1,10 @@
-import 'bootstrap/dist/css/bootstrap.css';
-
 import Vue from 'vue';
-import App from './App.vue';
+import App from './App';
 import Vuex from 'vuex';
 import VueResource from 'vue-resource';
+
+import 'common/utils/highView';
+import './less/main.less';
 
 import store from './store/index.js';
 import router from './routes.js';
@@ -17,5 +18,5 @@ new Vue({
 		app: App
 	},
 	router,
-	store: store.store
-}).$mount('#app')
+	store: store.store,
+}).$mount('#app');

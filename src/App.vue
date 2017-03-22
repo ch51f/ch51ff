@@ -50,7 +50,7 @@ export default {
 }
 .wrap-right {
 	float: left;
-	width: calc(100vw - 200px);
+	width: calc(100vw - 220px);
 	background: #fff;
 }
 .wrap-right>div {

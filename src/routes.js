@@ -17,7 +17,7 @@ const routes = [
 			component: Footer
 		}
 	]},
-	{path: '/details/:id', component: Datails, name: 'details'},
+	{path: '/details/:id', component: Details, name: 'details'},
 	{path: '/charts', component: Charts, name: 'charts'},
 	{path: '*', component: Content, name: 'home'}
 ]
