@@ -7,7 +7,7 @@
     "pm2": "pm2 start bin/run",
     "test": "./mode_modules/.bin/mocha -u bdd",
     "td": "babel src -d public/js",
-    "bn": "babel-node",
+    "bn": "babel-node ./src/babel.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "dev_vue": "cross-env NODE_ENV=development webpack-dev-server --config webpack.vue.config.js --open --hot"

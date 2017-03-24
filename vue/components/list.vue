@@ -19,6 +19,20 @@
 			<button @click="counter += 1">add counter</button>
 			<p>Counter: {{counter}}</p> 
 		</div>
+		<div>
+			<input v-model="txt" placeholder="edit me">
+			<p>Message is: {{txt}}</p>
+		</div>
+		<div>
+			<span>Muitiline message is:</span>
+			<p style="white-space: pre">{{text}}</p>
+			<br>
+			<textarea v-model="text" placeholder="add muitiple lines"></textarea>
+		</div>
+		<div>
+			<input type="checkbox" id="checkbox" v-model="checked">
+			<label for="checkbox">{{checked}}</label>
+		</div>
 	</div>
 </template>
 
@@ -38,6 +52,9 @@ export default {
 			],
 			html: '<p>html</p>',
 			counter: 0,
+			txt: '',
+			text: '',
+			checked: false,
 		}
 	},
 	methods: {
