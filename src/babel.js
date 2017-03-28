@@ -353,7 +353,7 @@ obj.xxx*/
 let arr = createArray('a', 'b', 'c');
 console.log(arr[-1])*/
 
-var pipe = (function() {
+/*var pipe = (function() {
 	return function(value) {
 		var funcStack = [];
 		var oproxy = new Proxy({}, {
@@ -375,18 +375,237 @@ var double = n => n * 2;
 var pow = n => n * n;
 var reverseInt = n => n.toString().split("").reverse().join("") | 0;
 
-pipe(3).double.pow.reverseInt.get;
+pipe(3).double.pow.reverseInt.get;*/
 
+/*function* helloWorldGenerator() {
+	yield 'hello';
+	yield 'world';
+	return 'ending';
+}
 
+var hw = helloWorldGenerator();
 
+console.log(hw.next())
+console.log(hw.next())
+console.log(hw.next())
+console.log(hw.next())
+console.log(hw.next())*/
 
+/*console.log(1)
+function* f() {
+	console.log('执行了');
+}
+var generator = f();
+console.log(2)
+setTimeout(function() {
+	generator.next();
+}, 2000)*/
 
+/*var arr = [1, [[2, 3], 4], [5, 6]];
 
+var flat = function* (a) {
+	a.forEach(function(item) {
+		if(typeof item !== 'number') {
+			yield* flat(item);
+		} else {
+			yield item;
+		}
+	})
+};
 
+for(var f of flat(arr)) {
+	console.log(f)
+}*/
 
+/*var arr = [1, [[2, 3], 4], [5, 6]];
 
+var flat = function* (a) {
+	var length = a.length;
+	for(var i = 0; i < length; i++) {
+		var item = a[i];
+		if(typeof item !== 'number') {
+			yield* flat(item);
+		} else {
+			yield item;
+		}
+	}
+};
 
+for(var f of flat(arr)) {
+	console.log(f);
+}*/
 
+/*var myIterable = {};
+myIterable[Symbol.iterator] = function* () {
+	yield 1;
+	yield 2;
+	yield 3;
+};
+console.log([...myIterable])*/
+
+/*function* f() {
+	for(var i = 0; true; i++) {
+		var reset = yield i;
+		if(reset) {i = -1;}
+	}
+}
+var g = f();
+console.log(g.next())
+console.log(g.next())
+console.log(g.next())
+console.log(g.next())
+console.log(g.next(true))
+console.log(g.next())
+console.log(g.next())
+console.log(g.next())
+console.log(g.next())
+console.log(g.next(true))*/
+
+/*function* foo(x) {
+	var y = 2 * (yield (x + 1));
+	var z = yield(y / 3);
+	return (x + y + z);
+}
+
+var a = foo(5);
+console.log(a.next())
+console.log(a.next())
+console.log(a.next())
+
+var b = foo(5);
+console.log(b.next())
+console.log(b.next(12))
+console.log(b.next(13))*/
+
+/*function wrapper(generatorFunction) {
+	return function(...args) {
+		let generatorObject = generatorFunction(...args);
+		generatorObject.next();
+		return generatorObject;
+	};
+}
+
+const wrapped = wrapper(function* () {
+	console.log(`First input: ${yield}`);
+	return 'DONE';
+});
+
+wrapped().next('hello!')*/
+
+/*function* dataConsumer() {
+	console.log('Started');
+	console.log(`1.${yield}`);
+	console.log(`2.${yield}`);
+	return 'result';
+}
+
+let genObj = dataConsumer();
+genObj.next();
+genObj.next('a');
+genObj.next('b');*/
+
+/*function* foo() {
+	yield 1;
+	yield 2;
+	yield 3;
+	yield 4;
+	yield 5;
+	yield 6;
+	return 7;
+}
+
+for(let v of foo()) {
+	console.log(v);
+}
+*/
+
+/*function* fibonacci() {
+	let [prev, curr] = [0, 1];
+	for(;;) {
+		[prev, curr] = [curr, prev + curr];
+		yield curr;
+	}
+}
+
+for(let n of fibonacci()) {
+	if(n > 1000) break;
+	console.log(n)
+}
+*/
+
+/*function* objectEntries(obj) {
+	let propKeys = Reflect.ownKeys(obj);
+	for(let propKey of propKeys) {
+		yield [propKey, obj[propKey]];
+	}
+}
+let jane = {first: 'Jane', last: 'Doe'};
+for(let [key, value] of objectEntries(jane)) {
+	console.log(`${key}: ${value}`);
+}
+*/
+
+/*function* objectEntries() {
+	let propKeys = Object.keys(this);
+	for(let propKey of propKeys) {
+		yield [propKey, this[propKey]];
+	}
+}
+let jane = {first: 'Jane', last: 'Doe'};
+jane[Symbol.iterator] = objectEntries;
+
+for(let [key, value] of jane) {
+	console.log(`${key}: ${value}`);
+}
+*/
+
+/*function* numbers() {
+	yield 1
+	yield 2
+	return 3
+	yield 4
+}
+
+console.log([...numbers()])
+console.log(Array.from(numbers()))
+
+let [x, y] = numbers();
+console.log(x, y)
+
+for(let n of numbers()) {
+	console.log(n)
+}
+*/
+
+/*var g = function* () {
+	try {
+		yield;
+	} catch(e) {
+		console.log('内部捕获', e);
+	}
+};
+var i = g();
+i.next();
+try {
+	i.throw('a');
+	i.throw('b');
+	i.throw('c');
+	i.throw('d');
+} catch(e) {
+	console.log('外部捕获', e);
+}
+*/
+
+/*var g = function* () {
+	try {
+		yield;
+	} catch (e) {
+		console.log(e);
+	}
+};
+var i = g();
+i.next();
+i.throw(new Error('出错了!'));*/
 
 
 
