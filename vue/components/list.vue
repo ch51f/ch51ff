@@ -10,12 +10,19 @@
 <script>
 import bar from './search_bar';
 import item from './list_item';
+import store from '../store/index.js';
 export default {
 	name: 'list',
 	data () {
 		return {
 			list: [1,2,3,4,5],
 		}
+	},
+	created() {
+		console.log(store.state.count)
+		console.log('created')
+		store.commit('increment')
+		console.log(store.state.count)
 	},
 	methods: {
 

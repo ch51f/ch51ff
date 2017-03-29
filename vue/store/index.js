@@ -4,7 +4,15 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-	author: 'ch51ff'
+	state: {
+		author: 'ch51ff',
+		count: 0,
+	},
+	mutations: {
+		increment(state) {
+			state.count++;
+		}
+	}
 })
 
-export default {store}
+export default store

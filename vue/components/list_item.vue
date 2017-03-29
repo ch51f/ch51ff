@@ -1,5 +1,5 @@
 <template>
-	<div class="item">
+	<router-link class="item" :to="{name: 'detail'}">
 		<div class="hd">
 			<div class="title">公告名称</div>
 			<div class="sub">
@@ -14,5 +14,5 @@
 				<div class="date">2017-03-27</div>
 			</div>
 		</div>
-	</div>
+	</router-link>
 </template>
