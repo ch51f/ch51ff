@@ -12,6 +12,17 @@ const store = new Vuex.Store({
 		increment(state) {
 			state.count++;
 		}
+	},
+	actions: {
+		increment(context) {
+			context.commit('increment');
+		},
+		incrementAsync({commit}) {
+			setTimeout(() => {
+				console.log('async')
+				commit('increment')
+			}, 5000)
+		}
 	}
 })
 
