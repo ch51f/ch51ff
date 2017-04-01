@@ -104,6 +104,7 @@ function ajax(options) {
                     } 
                     clearTimeout(timeout_flag); 
                 } 
+                console.log(xhr)
                 if((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
                     success(JSON.parse(xhr.responseText)); 
                 } else {

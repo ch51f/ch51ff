@@ -9,7 +9,6 @@ import './less/main.less';
 import store from './store/index.js';
 import router from './routes.js';
 
-Vue.use(Vuex);
 Vue.use(VueResource);
 
 new Vue({

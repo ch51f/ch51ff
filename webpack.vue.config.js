@@ -65,6 +65,24 @@ module.exports = {
 	devServer: {
 		historyApiFallback: true,
 		noInfo: true,
+		// contentBase: 'http://localhost:3000',
+		// proxy: {
+		// 	// '/api/**': { 
+		// 	// 	target: { 
+		// 	// 		'host': 'http://localhost', 
+		// 	// 		'port': 3000, 
+		// 	// 		'protocol': 'http:' 
+		// 	// 	}, 
+		// 	// 	secure: false, 
+		// 	// 	changeOrigin: true, 
+		// 	// 	pathRewrite: { '^/api': '' } 
+		// 	// }
+		// 	'/todo/**': {
+		// 		target: 'http://fch.net.fangstar.net:3000/todo',
+		// 	},
+		// 	secure: false,
+		// 	changeOrigin: true
+		// }
 	},
 	performance: {
 		hints: false,

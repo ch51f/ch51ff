@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import todo from './todo';
+import todo from './demo1';
 export default {
 	name: 'demo',
 	data () {

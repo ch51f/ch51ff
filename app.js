@@ -5,6 +5,7 @@ const views = require('koa-views');
 const co = require('co');
 const convert = require('koa-convert');
 const json = require('koa-json');
+const jsonp = require('koa-jsonp');
 const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser')();
 const logger = require('koa-logger');
@@ -16,6 +17,7 @@ const todo = require('./routes/todo');
 // middlewares
 app.use(convert(bodyparser));
 app.use(convert(json()));
+app.use(convert(jsonp()));
 app.use(convert(logger()));
 app.use(convert(require('koa-static')(__dirname + '/public')));
 

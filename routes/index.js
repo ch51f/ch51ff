@@ -3,7 +3,8 @@ var p = require('../mysql');
 
 router.get('/', async function(ctx, next) {
   ctx.state = {
-    title: 'koa2 title 123'
+    title: 'koa2 title 123',
+    data: [],
   };
 
   await ctx.render('index', {});
