@@ -1,3 +1,4 @@
+const curry = require('lodash').curry;
 /*function timeout(ms) {
 	return new Promise((resolve, reject) => {
 		if(false) {
@@ -607,11 +608,42 @@ var i = g();
 i.next();
 i.throw(new Error('出错了!'));*/
 
-
-
-
-
-
-
+let match = curry(function(what, str) {
+	return str.match(what);
+});
+let replace = curry(function(what, replacement, str) {
+	return str.replace(what, replacement);
+});
+let filter = curry(function(f, ary) {
+	return ary.filter(f);
+});
+let map = curry(function(f, ary) {
+	return ary.map(f);
+});
+console.log(match(/\s+/g, 'hello world'));
+console.log(match(/\s+/g)('hello world'));
+let hasSpaces = match(/\s+/g);
+console.log(hasSpaces('hello world'));
+console.log(hasSpaces('spaceless'));
+console.log(filter(hasSpaces, ['tori_spelling', 'tori amos']));
+let findSpaces = filter(hasSpaces);
+console.log(findSpaces(['tori_spelling', 'tori amos']));
+let noVowels = replace(/[aeiou]/ig);
+var censored = noVowels("*");
+console.log(censored('Chocolate Rain'));
+let split = curry(function(what, str) {
+	return str.split(what);
+})
+let words = split(' ');
+let sentences = map(words);
+console.log(words('hello world'));
+console.log(sentences(['hello world', 'i am ch51ff']));
+let fQ = match(/q/i);
+console.log(fQ('iq eq dq'))
+let filterQs = filter(fQ);
+console.log(filterQs(['iq', 'fch', 'ffq']));
+let _keepHighest = function(x, y) {
+	return x >= y ? x : y;
+};
 
 

@@ -5,7 +5,7 @@ router.all('/', async function(ctx, next) {
 	var todos = await p.query('SELECT * FROM todo WHERE delete_flag = 0');
 	// ctx.headerSent = "Access-Control-Allow-Origin";
 	ctx.type = 'json';
-	ctx.body = JSON.stringify(todos);
+	ctx.body = {data: todos}
 })
 
 router.all('/add', async function(ctx, next) {

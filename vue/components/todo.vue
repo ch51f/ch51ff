@@ -3,7 +3,7 @@
 		<h4>待办列表</h4>
 		<div class="list">
 			<div v-for="todo in todos" :key="todo.id">
-				<p>todo: {{todo.todo}}</p>
+				<p class="item" v-bind:class="{done: todo.status}">>todo: {{todo.todo}}</p>
 			</div>
 		</div>
 	</div>

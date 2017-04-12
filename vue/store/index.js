@@ -31,8 +31,8 @@ const store = new Vuex.Store({
 		getTodos({commit}) {
 			// debugger;
 			Vue.http.jsonp('http://fch.net.fangstar.net:3000/todo').then(response => {
-				let todos = JSON.parse(JSON.parse(response.data));
-				commit('todos', todos);
+				let todos = response.data;
+				commit('todos', todos.data);
 			}, response => {
 				alert('系统错误')
 				// console.log(2)
