@@ -1,4 +1,8 @@
 const curry = require('lodash').curry;
+const compose = require('lodash').flowRight;
+const output = function(x) {
+	console.log(x);
+}
 /*function timeout(ms) {
 	return new Promise((resolve, reject) => {
 		if(false) {
@@ -608,42 +612,108 @@ var i = g();
 i.next();
 i.throw(new Error('出错了!'));*/
 
-let match = curry(function(what, str) {
-	return str.match(what);
-});
-let replace = curry(function(what, replacement, str) {
-	return str.replace(what, replacement);
-});
-let filter = curry(function(f, ary) {
-	return ary.filter(f);
-});
-let map = curry(function(f, ary) {
-	return ary.map(f);
-});
-console.log(match(/\s+/g, 'hello world'));
-console.log(match(/\s+/g)('hello world'));
-let hasSpaces = match(/\s+/g);
-console.log(hasSpaces('hello world'));
-console.log(hasSpaces('spaceless'));
-console.log(filter(hasSpaces, ['tori_spelling', 'tori amos']));
-let findSpaces = filter(hasSpaces);
-console.log(findSpaces(['tori_spelling', 'tori amos']));
-let noVowels = replace(/[aeiou]/ig);
-var censored = noVowels("*");
-console.log(censored('Chocolate Rain'));
-let split = curry(function(what, str) {
-	return str.split(what);
-})
-let words = split(' ');
-let sentences = map(words);
-console.log(words('hello world'));
-console.log(sentences(['hello world', 'i am ch51ff']));
-let fQ = match(/q/i);
-console.log(fQ('iq eq dq'))
-let filterQs = filter(fQ);
-console.log(filterQs(['iq', 'fch', 'ffq']));
-let _keepHighest = function(x, y) {
-	return x >= y ? x : y;
-};
+// let match = curry(function(what, str) {
+// 	return str.match(what);
+// });
+// let replace = curry(function(what, replacement, str) {
+// 	return str.replace(what, replacement);
+// });
+// let filter = curry(function(f, ary) {
+// 	return ary.filter(f);
+// });
+// let map = curry(function(f, ary) {
+// 	return ary.map(f);
+// });
 
+// console.log(match(/\s+/g, 'hello world'));
+// console.log(match(/\s+/g)('hello world'));
+// let hasSpaces = match(/\s+/g);
+// console.log(hasSpaces('hello world'));
+// console.log(hasSpaces('spaceless'));
+// console.log(filter(hasSpaces, ['tori_spelling', 'tori amos']));
+// let findSpaces = filter(hasSpaces);
+// console.log(findSpaces(['tori_spelling', 'tori amos']));
+// let noVowels = replace(/[aeiou]/ig);
+// var censored = noVowels("*");
+// console.log(censored('Chocolate Rain'));
+// let split = curry(function(what, str) {
+// 	return str.split(what);
+// })
+// let words = split(' ');
+// let sentences = map(words);
+// console.log(words('hello world'));
+// console.log(sentences(['hello world', 'i am ch51ff']));
+// let fQ = match(/q/i);
+// console.log(fQ('iq eq dq'))
+// let filterQs = filter(fQ);
+// console.log(filterQs(['iq', 'fch', 'ffq']));
+// let _keepHighest = function(x, y) {
+// 	return x >= y ? x : y;
+// };
 
+// var toUpperCase = function(x) {
+// 	return x.toUpperCase();
+// }
+// var toLowerCase = function(x) {
+// 	return x.toLowerCase();
+// }
+// var exclaim = function(x) {
+// 	return x + '!';
+// }
+// var exclaim_1 = function(x) {
+// 	return x + '_1'
+// }
+// var shout = compose(exclaim, toUpperCase);
+// var shout_1 = compose(exclaim_1, exclaim, toUpperCase);
+
+// console.log(shout('send in the clowns'))
+// console.log(shout_1('send in the clowns'))
+
+// // var snakeCase = function(word) {
+// // 	return word.toLowerCase().replace(/\s+/ig, '_');
+// // };
+// var snakeCase = compose(replace(/\s+/ig, '_'), toLowerCase);
+
+// console.log(snakeCase('SEND in The ClownS'))
+
+// var head = function(x) {return x[0]}
+
+// // var initials = function(name) {
+// // 	return name.split(' ').map(compose(toUpperCase, head)).join('. ');
+// // };
+// var initials = compose(join('. '), map(compose(toUpperCase, head)), split(' '));
+
+// console.log(initials("hunter stockton thompson"))
+
+// var Container = function(x) {
+// 	this.__value = x;
+// }
+
+// Container.of = function(x) {return new Container(x)};
+
+// Container.prototype.map = function(f) {
+// 	return Container.of(f(this.__value))
+// }
+
+// // console.log(Container.of(3))
+// // console.log(Container.of('hotdogs'))
+// // console.log(Container.of(Container({name: 'yoda'})))
+// output(Container.of(2).map(function(two) {return two + 2}));
+// output(Container.of('flamethrowers').map(function(s) {return s.toUpperCase(0)}))
+// // output(Container.of('bombs').map(concat(' away')).map(_.prop('length')))
+
+var Maybe = function(x) {
+	this.__value = x;
+}
+
+Maybe.of = function(x) {
+	return new Maybe(x);
+}
+
+Maybe.prototype.isNothing = function() {
+	return (this.__value === null || this.__value === undefined);
+}
+
+Maybe.prototype.map = function(f) {
+	return this.isNothing() ? Maybe.of(null) : Maybe.of(f(this.__value))
+}

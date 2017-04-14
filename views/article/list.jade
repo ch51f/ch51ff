@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+  .container
+    h1= title
+    each item in articles
+      h3 
+        a(href="article/#{item.article_id}") #{item.article_title} <span class="small">#{item.article_author}</span>
