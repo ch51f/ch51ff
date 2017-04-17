@@ -2,7 +2,23 @@ extends ../layout
 
 block content
   .container
-    h1= title
+    h1 #{title} <small id="edit">添加句子</samll>
     h3 #{article.article_title}
     p #{article.article_author}
     p #{article.article_sub_title}
+    each item in sentences
+      p #{item.content}
+  .container#edit_box
+    .form.form-horizontal
+      .form-group
+        label.col-md-2.control-label 添加
+        .col-md-10
+          textarea.form-control(name="content")
+      .form-group
+        .col-md-offset-2.col-md-10
+          button.btn.btn-primary#add(type='button') 添加
+block script
+  script.
+    $(function() {
+
+    })

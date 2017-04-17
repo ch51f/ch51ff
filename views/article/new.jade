@@ -1,0 +1,58 @@
+extends ../layout
+
+block content
+  .container
+    h1= title
+    form.form-horizontal
+      .form-group
+        label.col-md-2.control-label 名称
+        .col-md-10
+          input.form-control(name="title")
+      .form-group
+        label.col-md-2.control-label 作者
+        .col-md-10
+          input.form-control(name="author")
+      .form-group
+        label.col-md-2.control-label 副标题
+        .col-md-10
+          input.form-control(name="sub")
+      .form-group
+        .col-md-offset-2.col-md-10
+          button.btn.btn-primary#submit(type='button') 提交
+
+block script
+  script.
+    $(function() {
+      var $title = $("input[name='title']"),
+        $author = $("input[name='author']"),
+        $sub = $("input[name='sub']"),
+        $submit = $("#submit");
+
+      $submit.on('click', function(e) {
+        var data = {};
+        var title = $title.val(),
+          author = $author.val(),
+          sub = $sub.val();
+        if(title == "") {
+          alert('请填写名称');
+          return false;
+        }
+        data.title = title;
+        if(author == "") {
+          alert('请填写作者');
+          return false;
+        }
+        data.author = author;
+        data.sub = sub;
+        $.ajax({
+          url: '/article/add',
+          type: 'post',
+          dataType: 'json',
+          data: data
+        }).success(function(res) {
+          window.location.href = '/article'
+        }).error(function(err) {
+          alert('提交失败')
+        })
+      })
+    })
