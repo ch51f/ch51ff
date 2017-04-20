@@ -21,13 +21,15 @@ router.all('/new_article', async function(ctx, next) {
 });
 
 router.all('/add', async function(ctx, next) {
-	let {title, author, sub} = ctx.request.body;
-	if(!title && !author) {
+	let {title, author, sub} = ctx.method == 'POST' ? ctx.query : ctx.request.body;
+
+	if(!title || !author) {
 		ctx.body = JSON.stringify({
 			result: false,
 			msg: '参数错误',
 			data: {title, author, sub}
 		})
+		return false;
 	}
 	try {
 		let res = await p.query(`INSERT INTO article (article_title, article_author, article_sub_title) VALUES("${title}", "${author}", "${sub}")`)
@@ -45,16 +47,18 @@ router.all('/add', async function(ctx, next) {
 });
 
 router.all('/add_sentence', async function(ctx, next) {
-	let {article_id, content} = ctx.request.body;
-	if(!title && !author) {
+	let {article_id, content} = ctx.method == 'POST' ? ctx.query : ctx.request.body;
+	if(!article_id || !content) {
 		ctx.body = JSON.stringify({
 			result: false,
 			msg: '参数错误',
 			data: {article_id, content}
 		})
+		return false;
 	}
+	console.log(article_id, content)
 	try {
-		let res = await p.query(`INSERT INTO sentence (article_id, content) VALUES("${article_id}", "${content})`)
+		let res = await p.query(`INSERT INTO sentence (article_id, content) VALUES("${article_id}", "${content}")`)
 		ctx.body = JSON.stringify({
 			result: true,
 			data: res

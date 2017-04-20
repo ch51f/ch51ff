@@ -1,10 +1,14 @@
 doctype html
 html
   head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
     title= title
-    link(rel='stylesheet', href='/webpack/css/main.css')
+    link(rel='stylesheet', href='/lib/bootstrap/css/bootstrap.min.css')
+    block style
   body
     block content 
-    script(src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js')
-    script(src='/webpack/js/main.js')
+    script(src='/lib/jquery/jquery.min.js')
+    script(src='/lib/less/less.min.js')
     block script

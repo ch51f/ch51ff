@@ -3,11 +3,10 @@ var p = require('../mysql');
 
 router.get('/', async function(ctx, next) {
   ctx.state = {
-    title: 'koa2 title 123',
-    data: [],
+    title: 'dashborad',
   };
 
-  await ctx.render('index', {});
+  await ctx.render('dashborad/sky', {});
 })
 
 router.get('haha', async function(ctx, next) {

@@ -1,0 +1,16 @@
+extends ../layout
+
+block style
+  link(rel='stylesheet/less', href='/less/dashborad.less')
+
+block content
+  .dashborad
+    #wrap
+      canvas#canvas
+      .con
+        a.link(href="http://119.23.27.136/") 我的blog
+
+block script
+  script(src="/lib/greensock/easing/EasePack.min.js")
+  script(src="/lib/greensock/TweenLite.min.js")
+  script(src="/js/line.js")
