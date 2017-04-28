@@ -1,0 +1,18 @@
+.swiper-container {
+  height: 300px;
+}
+.swiper-container .swiper-slide {
+  color: #fff;
+  font-size: 24px;
+  line-height: 300px;
+  text-align: center;
+}
+.swiper-container .swiper-slide:nth-child(1n) {
+  background-color: #4390EE;
+}
+.swiper-container .swiper-slide:nth-child(2n) {
+  background-color: #CA4040;
+}
+.swiper-container .swiper-slide:nth-child(3n) {
+  background-color: #FF8604;
+}
