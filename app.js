@@ -24,7 +24,7 @@ app.use(convert(logger()));
 app.use(convert(require('koa-static')(__dirname + '/public')));
 
 app.use(views(__dirname + '/views', {
-  extension: 'jade'
+  extension: 'pug'
 }));
 
 // app.use(views(__dirname + '/views-ejs', {
