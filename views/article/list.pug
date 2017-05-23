@@ -1,10 +1,11 @@
-extends ../layout
+extends ../layout/default
 
 block content
+  include ../component/navbar.pug
   .container
     h1= title
     each item in articles
       h3 
-        a(href="article/#{item.article_id}") #{item.article_title} <span class="small">#{item.article_author}</span>
+        a(href=`/article/${item.article_id}`) #{item.article_title} <span class="small">#{item.article_author}</span>
     p
       a.btn.btn-primary(role="button" href="article/new_article") 添加

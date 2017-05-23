@@ -1,12 +1,15 @@
 .dashborad {
   background: url(../asset/bg_sky.jpg) no-repeat 50% 50%;
+}
+.dashborad #wrap {
+  overflow: hidden;
+}
+.dashborad .con {
+  padding: 20px 0;
   position: absolute;
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
   z-index: 1;
-}
-.dashborad .title {
-  color: #fff;
 }

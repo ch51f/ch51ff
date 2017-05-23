@@ -21,7 +21,10 @@ router.all('/new_article', async function(ctx, next) {
 });
 
 router.all('/add', async function(ctx, next) {
-	let {title, author, sub} = ctx.method == 'POST' ? ctx.query : ctx.request.body;
+	let {title, author, sub} = ctx.method !== 'POST' ? ctx.query : ctx.request.body;
+	console.log(ctx.method)
+	console.log(ctx.query)
+	console.log(ctx.request.body)
 
 	if(!title || !author) {
 		ctx.body = JSON.stringify({
@@ -47,7 +50,7 @@ router.all('/add', async function(ctx, next) {
 });
 
 router.all('/add_sentence', async function(ctx, next) {
-	let {article_id, content} = ctx.method == 'POST' ? ctx.query : ctx.request.body;
+	let {article_id, content} = ctx.method !== 'POST' ? ctx.query : ctx.request.body;
 	if(!article_id || !content) {
 		ctx.body = JSON.stringify({
 			result: false,
