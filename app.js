@@ -15,6 +15,7 @@ const users = require('./routes/users');
 const todo = require('./routes/todo');
 const article = require('./routes/article');
 const swiper = require('./routes/swiper');
+const temple = require('./routes/temple');
 
 // middlewares
 app.use(convert(bodyparser));
@@ -44,6 +45,7 @@ router.use('/users', users.routes(), users.allowedMethods());
 router.use('/todo', todo.routes(), todo.allowedMethods());
 router.use('/article', article.routes(), article.allowedMethods());
 router.use('/swiper', swiper.routes(), swiper.allowedMethods());
+router.use('/temple', temple.routes(), temple.allowedMethods());
 
 app.use(router.routes(), router.allowedMethods());
 // response
