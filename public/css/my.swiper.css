@@ -16,3 +16,43 @@
 .swiper-container .swiper-slide:nth-child(3n) {
   background-color: #FF8604;
 }
+
+.f-swiper-menu .con-f {
+  border: 1px solid #ddd;
+}
+.f-swiper-menu .con-f > li {
+  border-bottom: 1px solid #ddd;
+}
+.f-swiper-menu .con-f .link-f {
+  color: #333;
+  cursor: pointer;
+  display: block;
+  font-weight: 600;
+  padding: 10px;
+  text-decoration: none;
+}
+.f-swiper-menu .con-f .link-f:hover {
+  background-color: #f2f2f2;
+}
+.f-swiper-menu .con-s .link-s {
+  color: #666;
+  cursor: pointer;
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+.f-swiper-menu .con-s .link-s.active {
+  color: #CA4040;
+}
+.f-swiper-menu .con-s .link-s:hover {
+  background-color: #f2f2f2;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+.break-wrap{
+  white-space: normal;
+  word-break:break-all;
+  word-wrap:break-word;
+}

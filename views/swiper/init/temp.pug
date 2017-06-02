@@ -1,21 +1,15 @@
-extends ../layout
+extends ../../layout
 
 block style
   link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
   link(rel='stylesheet/less', href='/css/my.swiper.css')
 block content
-  include ../component/navbar.pug
+  include ../../component/navbar.pug
   .container
     .row
       .col-md-3
-
+        include ../component/menu.pug
       .col-md-9
-        .swiper-container#swiper-1
-          .swiper-wrapper
-            .swiper-slide slider1
-            .swiper-slide slider2
-            .swiper-slide slider3
-
 block script
   script(src="/lib/swiper/js/swiper.jquery.min.js")
   script(src="/js/my.swiper.js")

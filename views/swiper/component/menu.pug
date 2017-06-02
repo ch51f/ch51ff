@@ -1,0 +1,9 @@
+.f-swiper-menu#menu
+  ul.con-f.list-unstyled
+    each item in menu
+      li
+        a.link-f #{item.value}
+        ul.con-s.list-unstyled(style={display: item.key != menu_f ? 'none' : 'block'})
+          each sub in item.sub
+            li
+              a.link-s.break-wrap(href=`${sub.url}`,class={active: sub.key == menu_s && item.key == menu_f}) #{sub.value}

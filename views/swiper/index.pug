@@ -1,0 +1,48 @@
+extends ../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ./component/menu.pug
+      .col-md-9
+        h4 Swiper基本结构
+        .desc
+          img(src="/asset/swiper/swiper.png")
+        h4 名词解释
+        .desc
+          table.table.table-striped
+            thead
+              tr
+                th 名词
+                th 描述
+            tbody
+              tr
+                td Swiper
+                td 整个滑动对象，有时特指<strong class="text-danger">滑块释放后仍然正向移动直到贴合边缘的过程(过渡)</strong>
+              tr
+                td container
+                td Swiper的容器，里面包括滑动块(slides)的封装(wrapper)、分页器(pagination)、前进按钮等
+              tr
+                td wrapper
+                td 触控的对象，可触摸区域，移动的块的集合，过渡时会随slide切换产生位移
+              tr
+                td slider
+                td 切换的滑块，可以包含文字、图片、html元素或另外一个Swiper
+              tr
+                td pagination
+                td 分页器，指示slide的数量和当前活动的slide
+              tr
+                td active-slide
+                td 活动滑块，即当前看到的(visible)slide，当可视slide不止一个时，默认最左边那个是活动滑块
+              tr
+                td callback
+                td 回调函数，在某些情况下触发
+
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
