@@ -10,5 +10,6 @@ nav.navbar.navbar-default
 
     .collapse.navbar-collapse#bs-example-navbar-collapse-1
       ul.nav.navbar-nav
-        li.active
-          a(href="/article") Article <span class="sr-only">(current)</span>
+        each item in navbar
+          li(class={active: item.key == navbar_cur})
+            a(href=`${item.url}`) #{item.value}
