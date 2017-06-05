@@ -1,0 +1,59 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 autoplay
+        p 自动切换的时间间隔(单位ms)，不设定该参数slide不会自动切换。
+        p 用户操作后autoplay停止，参考基本选项<a>autoplayDisableOnInteraction</a>。
+        p 你还可以在某个slide上设置单独的停留时间，例<code>&lt;div class="swiper-slide" data-swiper-autoplay="2000"&gt;</code>
+        h4 autoplay参数
+        p 类型：<span class="label label-info">number</span> 默认：<span class="label label-info">0</span> 举例：<span class="label label-info">5000</span> 启用版本：<span class="label label-info">3.0.0</span>
+        h4 效果演示
+        .desc
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+          p
+            span.label.label-danger 5000
+          .swiper-container#e2
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+          p
+            span.label.label-danger 1000
+          .swiper-container#e3
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+          p
+            span.label.label-danger 利用<a>slidePrev()</a>实现反方向自动切换
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var e1 = new Swiper('#e1', {
+        autoplay: 5000,
+      })
+      var e2 = new Swiper('#e2', {
+        autoplay: 1000,
+      })
+      var e3 = new Swiper('#e3', {
+        loop: true,
+      })
+      setInterval(function() {
+        e3.slidePrev();
+      }, 2000);
+    })

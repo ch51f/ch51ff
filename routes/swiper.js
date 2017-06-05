@@ -40,4 +40,43 @@ router.all('/page2', async function(ctx, next) {
   await ctx.render('swiper/basic/initialslide', {});
 })
 
+router.all('/page3', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 2,
+  }
+
+  await ctx.render('swiper/basic/direction', {});
+})
+
+router.all('/page4', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 3,
+  }
+
+  await ctx.render('swiper/basic/speed', {});
+})
+
+router.all('/page5', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 4,
+  }
+
+  await ctx.render('swiper/basic/autoplay', {});
+})
+
 module.exports = router;

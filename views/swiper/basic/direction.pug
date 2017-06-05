@@ -1,0 +1,44 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 direction
+        p Slides的滑动方向，可设置水平(horizontal)或垂直(vertical)。
+        h4 direction参数
+        p 类型：<span class="label label-info">string</span> 默认：<span class="label label-info">horizontal</span> 举例：<span class="label label-info">vertical</span> 启用版本：<span class="label label-info">3.0.0</span>
+        h4 效果演示
+        .desc
+          .swiper-container#h
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+          p 
+           span.label.label-danger horizontal
+          .swiper-container#v
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+          p 
+           span.label.label-danger vertical
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var hSwiper = new Swiper('#h', {
+        direction: 'horizontal'
+      });
+      var vSwiper = new Swiper('#v', {
+        direction: 'vertical'
+      })
+    })

@@ -23,17 +23,17 @@ var config = {
         {
           'key': 2,
           'value': 'direction(:horizontal)',
-          'url': '/swiper'
+          'url': '/swiper/page3'
         },
         {
           'key': 3,
           'value': 'speed(:300)',
-          'url': '/swiper'
+          'url': '/swiper/page4'
         },
         {
           'key': 4,
           'value': 'autoplay(:0)',
-          'url': '/swiper'
+          'url': '/swiper/page5'
         },
         {
           'key': 5,
