@@ -1,0 +1,49 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 parallax
+        p 如需要开启视差效果（相对父元素移动），设置为true并在所需要的元素上增加data-swiper-parallax属性。
+        p 自从3.0.3版本后Swiper为swiper和slide内元素增加视差效果。有两种表现形式：
+        ol
+          li 对应swiper-container的子元素，视差效果基于swiper的progress（0-1之间的小数，如有三个slide则是0->0.5->1）。
+          li 对应slides的子元素，视差效果基于slide的progress(1, 0, -1，当前slide向左是从0->1，向右是0->-1)。
+        p <b>data-swiper-parallax</b>接受两种类型的参数。
+        ol
+          li number（单位：px），移动距离=number*progress。
+          li percentage（百分比），移动距离=元素宽带*percentage*progress。
+        p 你还可以通过<b>data-swiper-parallax-x</b>和<b>data-swiper-parallax-y</b>单独设定其移动方向。
+        p 还可通过<b>data-swiper-parallax-duration</b>设定动画持续时间（可选），单位毫秒，默认值是Swiper的speed。
+        p 例：swiper内有5个slide，则swiper的progress是0，0.25，0.5，0.75，1。
+        p swiper-container的子元素，设定了data-swiper-parallax=1000，当slide从0过渡到1时（初始向右滑动），该元素向右移动250px。
+        p slides的子元素，设定了data-swiper-parallax=1000，当slide从0过渡到1时（初始向右滑动），该元素相对于slide从0向右移动到250px处。nextslide内元素相对于slide从-250px向右移动到0px处。
+        h4 parallax参数
+        p 类型：<span class="label label-info">boolean</span> 默认：<span class="label label-info">false</span> 举例：<span class="label label-info">true</span> 启用版本：<span class="label label-info">3.0.3</span>
+        h4 效果演示
+        .desc
+          .swiper-container.no-bg
+            .parallax-bg(style="background-image:url(/asset/swiper/Parallax.jpg)" data-swiper-parallax="-23%" data-swiper-parallax-duration="3000")
+            .swiper-wrapper
+              .swiper-slide
+                div(data-swiper-parallax="-100") Slide 1
+              .swiper-slide
+                div(data-swiper-parallax="-100") Slide 2
+
+
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var mySwiper = new Swiper('.swiper-container', {
+        parallax: true
+      })
+    })

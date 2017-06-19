@@ -1,0 +1,35 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 hashnav
+        p 如需为每个slide增加散列导航（有点像锚链接）。将hashnav设置为true，并在每个slide处增加data-hash属性。
+        p 这样当你的swiper切换时你的页面url就会加上这个属性的值了，你也可以通过进入页面是修改页面url让swiper在初始化时切换到指定的slide。
+        p 你可以直接跳转到指定的slide。比如这样：<a href="/swiper/hashnav#slide3" target="_blank">直接跳到第三个slide</a>。
+        p 如果悬疑流量器的前进后退按钮配合控制，悬疑加上<a href="/swiper/h_w_s">hashnavWatchState</a>
+        h4 hashnav参数
+        p 类型：<span class="label label-info">boolean</span> 默认：<span class="label label-info">false</span> 举例：<span class="label label-info">true</span> 启用版本：<span class="label label-info">3.0.0</span>
+        h4 效果演示
+        .desc
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide(data-hash="slide1") slider1
+              .swiper-slide(data-hash="slide2") slider2
+              .swiper-slide(data-hash="slide3") slider3
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var e1 = new Swiper('#e1', {
+        hashnav: true
+      })
+    })

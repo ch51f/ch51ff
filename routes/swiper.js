@@ -14,7 +14,7 @@ router.all('/', async function(ctx, next) {
   await ctx.render('swiper/index', {});
 })
 
-router.all('/page1', async function(ctx, next) {
+router.all('/init', async function(ctx, next) {
   ctx.state = {
     title: 'swiper 学习',
     navbar_cur: 1,
@@ -27,7 +27,7 @@ router.all('/page1', async function(ctx, next) {
   await ctx.render('swiper/init/init', {});
 })
 
-router.all('/page2', async function(ctx, next) {
+router.all('/initialslide', async function(ctx, next) {
   ctx.state = {
     title: 'swiper 学习',
     navbar_cur: 1,
@@ -40,7 +40,7 @@ router.all('/page2', async function(ctx, next) {
   await ctx.render('swiper/basic/initialslide', {});
 })
 
-router.all('/page3', async function(ctx, next) {
+router.all('/direction', async function(ctx, next) {
   ctx.state = {
     title: 'swiper 学习',
     navbar_cur: 1,
@@ -53,7 +53,7 @@ router.all('/page3', async function(ctx, next) {
   await ctx.render('swiper/basic/direction', {});
 })
 
-router.all('/page4', async function(ctx, next) {
+router.all('/speed', async function(ctx, next) {
   ctx.state = {
     title: 'swiper 学习',
     navbar_cur: 1,
@@ -66,7 +66,7 @@ router.all('/page4', async function(ctx, next) {
   await ctx.render('swiper/basic/speed', {});
 })
 
-router.all('/page5', async function(ctx, next) {
+router.all('/autoplay', async function(ctx, next) {
   ctx.state = {
     title: 'swiper 学习',
     navbar_cur: 1,
@@ -77,6 +77,119 @@ router.all('/page5', async function(ctx, next) {
   }
 
   await ctx.render('swiper/basic/autoplay', {});
+})
+
+router.all('/a_d_o_i', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 5,
+  }
+
+  await ctx.render('swiper/basic/autoplayDisableOnInteraction', {});
+})
+
+router.all('/a_s_o_l', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 6,
+  }
+
+  await ctx.render('swiper/basic/autoplaystoponlast', {});
+})
+
+router.all('/grabcursor', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 7,
+  }
+
+  await ctx.render('swiper/basic/grabCursor', {});
+})
+
+router.all('/parallax', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 8,
+  }
+
+  await ctx.render('swiper/basic/parallax', {});
+})
+
+router.all('/hashnav', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 9,
+  }
+
+  await ctx.render('swiper/basic/hashnav', {});
+})
+
+router.all('/h_w_s', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 10,
+  }
+
+  await ctx.render('swiper/basic/hashnavWatchState', {});
+})
+
+
+router.all('/demo_h_w_s', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+  }
+
+  await ctx.render('swiper/basic/demo_hws', {});
+})
+
+router.all('/history', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 11,
+  }
+
+  await ctx.render('swiper/basic/history', {});
+})
+
+router.all('/replacestate', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 11,
+  }
+
+  await ctx.render('swiper/basic/replaceState', {});
 })
 
 module.exports = router;

@@ -7,7 +7,7 @@ var config = {
         {
           'key': 1,
           'value': 'new Swiper(swiperContainer, parameters)',
-          'url': '/swiper/page1'
+          'url': '/swiper/init'
         }
       ]
     },
@@ -18,62 +18,62 @@ var config = {
         {
           'key': 1,
           'value': 'initialSlide(:0)',
-          'url': '/swiper/page2'
+          'url': '/swiper/initialslide'
         },
         {
           'key': 2,
           'value': 'direction(:horizontal)',
-          'url': '/swiper/page3'
+          'url': '/swiper/direction'
         },
         {
           'key': 3,
           'value': 'speed(:300)',
-          'url': '/swiper/page4'
+          'url': '/swiper/speed'
         },
         {
           'key': 4,
           'value': 'autoplay(:0)',
-          'url': '/swiper/page5'
+          'url': '/swiper/autoplay'
         },
         {
           'key': 5,
           'value': 'autoplayDisableOnInteraction(:true)',
-          'url': '/swiper'
+          'url': '/swiper/a_d_o_i'
         },
         {
           'key': 6,
           'value': 'autoplayStopOnLast(:false)',
-          'url': '/swiper'
+          'url': '/swiper/a_s_o_l'
         },
         {
           'key': 7,
           'value': 'grabCursor(:false)',
-          'url': '/swiper'
+          'url': '/swiper/grabcursor'
         },
         {
           'key': 8,
           'value': 'parallax(:false)',
-          'url': '/swiper'
+          'url': '/swiper/parallax'
         },
         {
           'key': 9,
           'value': 'hashnav(:false)',
-          'url': '/swiper'
+          'url': '/swiper/hashnav'
         },
         {
           'key': 10,
           'value': 'hashnavWatchState(:false)',
-          'url': '/swiper'
+          'url': '/swiper/h_w_s'
         },
         {
           'key': 11,
           'value': 'history(:"")',
-          'url': '/swiper'
+          'url': '/swiper/history'
         },
         {
           'key': 12,
           'value': 'replaceState(:false)',
-          'url': '/swiper'
+          'url': '/swiper/replacestate'
         },
         {
           'key': 13,

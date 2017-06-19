@@ -1,0 +1,23 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  .container
+    .desc
+      .swiper-container#e1
+        .swiper-wrapper
+          .swiper-slide(data-hash="slide1") slider1
+          .swiper-slide(data-hash="slide2") slider2
+          .swiper-slide(data-hash="slide3") slider3
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var e1 = new Swiper('#e1', {
+        hashnav: true,
+        hashnavWatchState: true
+      })
+    })

@@ -16,6 +16,9 @@
 .swiper-container .swiper-slide:nth-child(3n) {
   background-color: #FF8604;
 }
+.swiper-container.no-bg .swiper-slide {
+  background-color: inherit;
+}
 
 .f-swiper-menu .con-f {
   border: 1px solid #ddd;
@@ -59,4 +62,15 @@
 .my-ania {
   transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
   -webkit-transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
+}
+
+.parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 130%;
+  height: 100%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
 }
