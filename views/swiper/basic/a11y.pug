@@ -1,0 +1,46 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 a11y
+        p 辅助，无障碍阅读。开启本参数为屏幕阅读器添加语言提示等信息，方便视觉障碍者。基于ARIA标准。
+        ul.list-unstyled
+          li prevSlideMessage 类型:string 默认: 'Previous slide' 在屏幕阅读器为上一页按钮添加信息。
+          li nextSlideMessage 类型:string 默认: 'Next slide' 在屏幕阅读器为下一页按钮添加信息。
+          li firstSlideMessage 类型:string 默认: 'This is the first slide' 在屏幕阅读器当处于第一个slide为上一页按钮添加信息。
+          li listSlideMessage 类型:string 默认: 'This is the last slide' 在屏幕阅读器当处于最后一个slide为下一页按钮添加信息。
+          li paginationBulletMessage 类型:string 默认: 'Go to slide {{index}}' 在屏幕阅读器为分页器小点添加信息。
+        h4 a11y参数
+        p 类型：<span class="label label-info">boolean</span> 默认：<span class="label label-info">false</span> 举例：<span class="label label-info">true</span> 启用版本：<span class="label label-info">3.0.5</span>
+        h4 效果演示
+        .desc
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var el = new Swiper('#e1', {
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        pagination: '.swiper-pagination',
+        a11y: true,
+        prevSlideMessage: 'Previous slide',
+        nextSlideMessage: 'Next slide',
+        firstSlideMessage: 'This is the first slide',
+        lastSlideMessage: 'Thie is the last slide',
+        paginationBulletMessage: 'Go to slide {{index}}'
+      })
+    })

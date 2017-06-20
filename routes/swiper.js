@@ -186,10 +186,49 @@ router.all('/replacestate', async function(ctx, next) {
     navbar: navbar,
     menu: menu,
     menu_f: 2,
-    menu_s: 11,
+    menu_s: 12,
   }
 
   await ctx.render('swiper/basic/replaceState', {});
+})
+
+router.all('/setwrappersize', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 13,
+  }
+
+  await ctx.render('swiper/basic/setWrapperSize', {});
+})
+
+router.all('/virtualtranslate', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 14,
+  }
+
+  await ctx.render('swiper/basic/virtualTranslate', {});
+})
+
+router.all('/a11y', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 15,
+  }
+
+  await ctx.render('swiper/basic/a11y', {});
 })
 
 module.exports = router;

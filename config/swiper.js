@@ -78,17 +78,17 @@ var config = {
         {
           'key': 13,
           'value': 'setWrapperSize(:false)',
-          'url': '/swiper'
+          'url': '/swiper/setwrappersize'
         },
         {
           'key': 14,
           'value': 'virtualTranslate(:false)',
-          'url': '/swiper'
+          'url': '/swiper/virtualtranslate'
         },
         {
           'key': 15,
           'value': 'a11y(:false)',
-          'url': '/swiper'
+          'url': '/swiper/a11y'
         },
         {
           'key': 16,

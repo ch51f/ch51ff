@@ -19,7 +19,20 @@
 .swiper-container.no-bg .swiper-slide {
   background-color: inherit;
 }
-
+.swiper-container.no-bg.virtual .swiper-slide {
+  opacity: 0;
+  transition: all .3s;
+}
+.swiper-container.no-bg.virtual .swiper-slide-active{
+  color: #000;
+  opacity: 1;
+}
+.swiper-container.no-bg.virtual .swiper-slide:nth-child(2n) {
+  left: -100%;
+}
+.swiper-container.no-bg.virtual .swiper-slide:nth-child(3n) {
+  left: -200%;
+}
 .f-swiper-menu .con-f {
   border: 1px solid #ddd;
 }
