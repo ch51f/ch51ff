@@ -231,4 +231,83 @@ router.all('/a11y', async function(ctx, next) {
   await ctx.render('swiper/basic/a11y', {});
 })
 
+router.all('/width', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 16,
+  }
+
+  await ctx.render('swiper/basic/width', {});
+})
+
+router.all('/height', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 17,
+  }
+
+  await ctx.render('swiper/basic/height', {});
+})
+
+router.all('/roundlengths', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 18,
+  }
+
+  await ctx.render('swiper/basic/RoundLengths', {});
+})
+
+router.all('/breakpoints', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 19,
+  }
+
+  await ctx.render('swiper/basic/breakpoints', {});
+})
+
+router.all('/autoheight', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 20,
+  }
+
+  await ctx.render('swiper/basic/autoHeight', {});
+})
+
+router.all('/nested', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 2,
+    menu_s: 21,
+  }
+
+  await ctx.render('swiper/basic/nested', {});
+})
+
+
 module.exports = router;

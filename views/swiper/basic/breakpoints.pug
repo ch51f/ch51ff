@@ -1,0 +1,43 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 breakpoints
+        p 断点设定：根据屏幕宽度设置某参数为不同的值，类似于响应式不加的media screen。
+        p 只有部分不需要变化布局方式和逻辑结构的参数支持断点设定，如<span class="txt-success">slidesPerView、slidesPerGroup、spaceBetween</span>，而像<span class="txt-danger">slidesPerColumn、loop、direction、effect</span>等则无效。
+        p 类型：<span class="label label-info">object</span> 启用版本：<span class="label label-info">3.2.0</span>
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 4,
+        spaceBetween: 40,
+        breakpoints: {
+          //- 当宽度小于等于320
+          320: {
+            slidesPreView: 2,
+            spaceBetweenSlides: 10
+          },
+          //- 当宽度小于等于400
+          400: {
+            slidesPreView: 2,
+            spaceBetweenSlides: 20
+          },
+          //- 640
+          640: {
+            slidesPreView: 3,
+            spaceBetweenSlides: 30
+          }
+        }
+      })
+    })

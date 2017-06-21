@@ -93,32 +93,32 @@ var config = {
         {
           'key': 16,
           'value': 'width(:)',
-          'url': '/swiper'
+          'url': '/swiper/width'
         },
         {
           'key': 17,
           'value': 'height(:)',
-          'url': '/swiper'
+          'url': '/swiper/height'
         },
         {
           'key': 18,
           'value': 'roundLengths(:false)',
-          'url': '/swiper'
+          'url': '/swiper/roundlengths'
         },
         {
           'key': 19,
           'value': 'breakpoints(:"")',
-          'url': '/swiper'
+          'url': '/swiper/breakpoints'
         },
         {
           'key': 20,
           'value': 'autoHeight(:false)',
-          'url': '/swiper'
+          'url': '/swiper/autoheight'
         },
         {
           'key': 21,
           'value': 'nested(:false)',
-          'url': '/swiper'
+          'url': '/swiper/nested'
         },
       ]
     },
