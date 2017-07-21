@@ -1,5 +1,6 @@
 .swiper-container {
   min-height: 300px;
+  margin-bottom: 20px;
 }
 .swiper-container .swiper-slide {
   color: #fff;
@@ -86,4 +87,23 @@
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center;
+}
+
+.swiper-bar {
+  overflow: hidden;
+}
+
+.swiper-bar .swiper-wrapper .swiper-slide {
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+}
+.swiper-bar .swiper-wrapper .swiper-slide.active-nav {
+  background-color: #aaa;
+}
+.swiper-container.m-h {
+  height: 300px;
+}
+.swiper-slide1 {
+  text-align: center;
 }

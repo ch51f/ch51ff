@@ -309,5 +309,121 @@ router.all('/nested', async function(ctx, next) {
   await ctx.render('swiper/basic/nested', {});
 })
 
+router.all('/watchslidesprogress', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 3,
+    menu_s: 1,
+  }
+
+  await ctx.render('swiper/progress/watchSlidesProgress', {});
+})
+
+router.all('/watchslidesvisibility', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 3,
+    menu_s: 2,
+  }
+
+  await ctx.render('swiper/progress/watchSlidesVisibility', {});
+})
+
+router.all('/freemode', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 4,
+    menu_s: 1,
+  }
+
+  await ctx.render('swiper/freemode/freeMode', {});
+})
+
+router.all('/freemodemomentum', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 4,
+    menu_s: 2,
+  }
+
+  await ctx.render('swiper/freemode/freeModeMomentum', {});
+})
+
+router.all('/freemodemomentumratio', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 4,
+    menu_s: 3,
+  }
+
+  await ctx.render('swiper/freemode/freeModeMomentumRatio', {});
+})
+
+router.all('/freemodemomentumvelocityratio', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 4,
+    menu_s: 4,
+  }
+
+  await ctx.render('swiper/freemode/freeModeMomentumVelocityRatio', {});
+})
+
+router.all('/freemodemomentumbounce', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 4,
+    menu_s: 5,
+  }
+
+  await ctx.render('swiper/freemode/freeModeMomentumBounce', {});
+})
+
+router.all('/freemodemomentumbounceratio', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 4,
+    menu_s: 6,
+  }
+
+  await ctx.render('swiper/freemode/freeModeMomentumBounceRatio', {});
+})
+
+router.all('/freemodesticky', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 4,
+    menu_s: 7,
+  }
+
+  await ctx.render('swiper/freemode/freeModeSticky', {});
+})
 
 module.exports = router;

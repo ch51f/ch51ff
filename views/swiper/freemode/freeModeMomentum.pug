@@ -1,0 +1,48 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 freeModeMomentum
+        p free模式动量。free模式下，若设置为false则关闭动量，释放slide之后立即停止不会滑动。
+  
+        h4 freeModeMomentum参数
+        p 类型：<span class="label label-info">boolean</span> 默认：<span class="label label-info">true</span> 举例：<span class="label label-info">false</span> 启用版本：<span class="label label-info">3.0.0</span>
+
+        h4 效果演示
+        .desc
+          p
+            span.label.label-danger false
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+          p
+            span.label.label-danger true
+          .swiper-container#e2
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var e1 = new Swiper('#e1', {
+        freeMode : true,
+        freeModeMomentum: true,
+      });
+      var e2 = new Swiper('#e2', {
+        freeMode : true,
+        freeModeMomentum: false,
+      });
+    })

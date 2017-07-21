@@ -129,12 +129,12 @@ var config = {
         {
           'key': 1,
           'value': 'watchSlidesProgress(:false)',
-          'url': '/swiper'
+          'url': '/swiper/watchslidesprogress'
         },
         {
           'key': 2,
           'value': 'watchSlidesVisibility(:false)',
-          'url': '/swiper'
+          'url': '/swiper/watchslidesvisibility'
         },
       ]
     },
@@ -145,37 +145,37 @@ var config = {
         {
           'key': 1,
           'value': 'freeMode(:false)',
-          'url': '/swiper'
+          'url': '/swiper/freemode'
         },
         {
           'key': 2,
           'value': 'freeModeMomenturn(:true)',
-          'url': '/swiper'
+          'url': '/swiper/freemodemomentum'
         },
         {
           'key': 3,
           'value': 'freeModeMomentumRatio(:1)',
-          'url': '/swiper'
+          'url': '/swiper/freemodemomentumratio'
         },
         {
           'key': 4,
           'value': 'freeModeMomentumVelocityRatio(:1)',
-          'url': '/swiper'
+          'url': '/swiper/freemodemomentumvelocityratio'
         },
         {
           'key': 5,
           'value': 'freeModeMomentumBounce(:true)',
-          'url': '/swiper'
+          'url': '/swiper/freemodemomentumbounce'
         },
         {
           'key': 6,
           'value': 'freeModeMomentumBounceRatio(:1)',
-          'url': '/swiper'
+          'url': '/swiper/freemodemomentumbounceratio'
         },
         {
           'key': 7,
           'value': 'freeModeSticky(:false)',
-          'url': '/swiper'
+          'url': '/swiper/freemodesticky'
         },
       ]
     },

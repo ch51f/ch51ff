@@ -1,0 +1,100 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 freeModeSticky
+        p 使得freeMode也能自动贴合。
+  
+        h4 freeModeSticky参数
+        p 类型：<span class="label label-info">boolean</span> 默认：<span class="label label-info">false</span> 举例：<span class="label label-info">true</span> 启用版本：<span class="label label-info">3.0.7</span>
+
+        h4 效果演示
+        .desc
+          p
+            span.label.label-danger false
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+          p
+            span.label.label-danger true
+          .swiper-container#e2
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+
+          p 应用实例：利用freeModeSticky制作一个选择器
+          p.text-center 选择时间(某些浏览器无法垂直滚动)
+          .swiper-container.m-h#e3
+            .cloth &nbsp;
+            .swiper-wrapper
+
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var e1 = new Swiper('#e1', {
+        freeMode : true,
+      });
+      var e2 = new Swiper('#e2', {
+        freeMode : true,
+        freeModeSticky : true,
+      });
+
+      var e3 = new Swiper('#e3', {
+        direction: 'vertical',
+        slidesPerView: 9,
+        freeMode: true,
+        freeModeSticky: true,
+        centeredSlides: true,
+        mousewheelControl: true,
+        onInit: function(swiper) {
+          swiper.removeSlide(0);
+          var s = new Array();
+          for(i = 0; i < 24; i++) {
+            if(i.toString().length == 1) {
+              t = '0' + i;
+            } else {
+              t = i;
+            }
+            s[i] = '<div class="swiper-slide1">' + t + '</div>';
+          }
+          swiper.appendSlide(s);
+          swiper.appendSlide(s);
+          swiper.appendSlide(s);
+          swiper.appendSlide(s);
+          swiper.appendSlide(s);
+          swiper.update();
+          swiper.slideTo(48 + new Date().getHours(), 0);
+        },
+        onSlideChangeEnd: function(swiper) {
+          if(swiper.activeIndex > 72 || swiper.activeIndex < 48) {
+            console.log(swiper.activeIndex)
+            swiper.slideTo(48 + swiper.activeIndex%24, 0);
+          }
+        },
+        onTransitionEnd: function(swiper) {
+          if(swiper.activeIndex > 72 || swiper.activeIndex < 48) {
+            console.log(swiper.activeIndex)
+            swiper.slideTo(48 + swiper.activeIndex%24, 0);
+          }
+        },
+        onTouchStart: function(swiper, even) {
+          if(swiper.activeIndex > 72 || swiper.activeIndex < 48) {
+            console.log(swiper.activeIndex)
+            swiper.slideTo(48 + swiper.activeIndex%24, 0);
+          }
+        }
+      })
+    })

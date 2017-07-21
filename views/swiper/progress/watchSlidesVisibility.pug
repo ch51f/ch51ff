@@ -1,0 +1,97 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 watchSlidesVisibility
+        p 开启watchSlidesVisibility选项前需要先开启watchSlidesProgress，如果开启了watchSlidesVisibility，则会在每个可见slide增加一个classname，默认为'swiper-slide-visible'。
+        h4 watchSlidesVisibility参数
+        p 类型：<span class="label label-info">boolean</span> 默认：<span class="label label-info">false</span> 举例：<span class="label label-info">true</span> 启用版本：<span class="label label-info">3.0.4</span>
+        h4 效果演示
+        .desc
+          p 第1,2,3个slide是visible，第一个是active。
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+              .swiper-slide slider4
+              .swiper-slide slider5
+              .swiper-slide slider6
+              .swiper-slide slider7
+              .swiper-slide slider8
+          p 利用watchSlidesVisibility和<a>clickedIndex</a>制作宽度超出后自动适应的导航
+          .swiper-bar#e2
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+              .swiper-slide slider4
+              .swiper-slide slider5
+              .swiper-slide slider6
+              .swiper-slide slider7
+              .swiper-slide slider8
+          .swiper-container#e3
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+              .swiper-slide slider4
+              .swiper-slide slider5
+              .swiper-slide slider6
+              .swiper-slide slider7
+              .swiper-slide slider8
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+       var e1 = new Swiper('#e1', {
+        watchSlidesProgress: true,
+        watchSlidesVisibility: true,
+        slidesPerView: 3,
+        pagination: '.swiper-pagination',
+       })
+
+       var e2 = new Swiper('#e2', {
+        watchSlidesProgress: true,
+        watchSlidesVisibility: true,
+        slidesPerView: 3,
+        onTap: function() {
+          e3.slideTo(e2.clickedIndex)
+        }
+       })
+
+       var e3 = new Swiper('#e3', {
+        onSlideChangeStart: function() {
+          updateNavPosition();
+        }
+       })
+
+       $("#e2 .swiper-slide").eq(0).addClass('active-nav')
+
+       function updateNavPosition() {
+        $('#e2 .active-nav').removeClass('active-nav');
+
+        var activeNav = $("#e2 .swiper-slide").eq(e3.activeIndex).addClass('active-nav');
+
+        if(!activeNav.hasClass('swiper-slide-visible')) {
+          console.log(1);
+          if(activeNav.index() > e2.activeIndex) {
+            console.log(2);
+            var thumbsPerNav = Math.floor(e2.width/activeNav.width()) - 1;
+            e2.slideTo(activeNav.index() - thumbsPerNav)
+          } else {
+            console.log(3);
+            e2.slideTo(activeNav.index())
+          }
+        }
+       }
+    })
