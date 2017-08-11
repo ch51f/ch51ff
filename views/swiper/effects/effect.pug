@@ -1,0 +1,104 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 effect
+        p slide的切换效果，默认为'slide'(位移切换)，可设置为'fade'(淡入)'cube'(方块)'coverflow'(3d流)'flip'(3d翻转)。
+  
+        h4 effect参数
+        p 类型：<span class="label label-info">string</span> 默认：<span class="label label-info">flide</span> 举例：<span class="label label-info">fade</span> 启用版本：<span class="label label-info">3.0.0</span>
+
+        h4 效果演示
+        .desc
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+              .swiper-slide slider4
+              .swiper-slide slider5
+              .swiper-slide slider6
+              .swiper-slide slider7
+              .swiper-slide slider8
+          p 
+            span.label.label-danger slide
+          .swiper-container#e2
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+              .swiper-slide slider4
+              .swiper-slide slider5
+              .swiper-slide slider6
+              .swiper-slide slider7
+              .swiper-slide slider8
+          p 
+            span.label.label-danger fade
+          .swiper-container#e3
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+              .swiper-slide slider4
+              .swiper-slide slider5
+              .swiper-slide slider6
+              .swiper-slide slider7
+              .swiper-slide slider8
+          p 
+            span.label.label-danger cube
+          .swiper-container#e4
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+              .swiper-slide slider4
+              .swiper-slide slider5
+              .swiper-slide slider6
+              .swiper-slide slider7
+              .swiper-slide slider8
+          p 
+            span.label.label-danger coverflow
+          .swiper-container#e5
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+              .swiper-slide slider4
+              .swiper-slide slider5
+              .swiper-slide slider6
+              .swiper-slide slider7
+              .swiper-slide slider8
+          p 
+            span.label.label-danger flip
+
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var e1 = new Swiper('#e1', {
+        effect : 'slide',
+      });
+      var e2 = new Swiper('#e2', {
+        effect : 'fade',
+      });
+      var e3 = new Swiper('#e3', {
+        effect : 'cube',
+      });
+      var e4 = new Swiper('#e4', {
+        effect : 'coverflow',
+        slidesPerView: 3,
+        centeredSlides: true,
+      });
+      var e5 = new Swiper('#e5', {
+        effect : 'flip',
+      });
+    })

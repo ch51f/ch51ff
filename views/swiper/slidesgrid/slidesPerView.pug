@@ -1,0 +1,84 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 slidesPerView
+        p 设置slider容器能够同时显示的slides数量(carousel模式)。
+        p 可以设置为数字(可为小数，小数不可loop)，或者'auto'则自动根据slides的快递来设定数量。
+        p loop模式下如果设置为'auto'还需要设置另外一个产生loopedSlides。
+  
+        h4 slidesPerView参数
+        p 类型：<span class="label label-info">number or auto</span> 默认：<span class="label label-info">1</span> 举例：<span class="label label-info">2</span> 启用版本：<span class="label label-info">3.0.0</span>
+
+        h4 效果演示
+        .desc
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+              .swiper-slide slider4
+              .swiper-slide slider5
+              .swiper-slide slider6
+              .swiper-slide slider7
+              .swiper-slide slider8
+          p 
+            span.label.label-danger slidesPerView:2
+          .swiper-container#e2
+            .swiper-wrapper
+              .swiper-slide(style="width: 200px") slider1
+              .swiper-slide(style="width: 400px") slider2
+              .swiper-slide(style="width: 300px") slider3
+              .swiper-slide(style="width: 200px") slider4
+              .swiper-slide(style="width: 400px") slider5
+              .swiper-slide(style="width: 300px") slider6
+              .swiper-slide(style="width: 200px") slider7
+              .swiper-slide(style="width: 400px") slider8
+          p 
+            span.label.label-danger slidesPerView:'auto'
+          p 应用实例：最后一个页面不是全高的页面展示
+          .swiper-container#e3(style="height: 600px; width: 450px;")
+            .swiper-wrapper
+              .swiper-slide(style="line-height: 600px") 全高slider1
+              .swiper-slide(style="line-height: 600px") 全高slider2
+              .swiper-slide(style="line-height: 600px") 全高slider3
+              .swiper-slide(style="line-height: 600px") 全高slider4
+              .swiper-slide(style="line-height: 150px; height: 150px") 最后一个slider
+            .swiper-pagination
+            .swiper-button-prev
+            .swiper-button-next
+
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var e1 = new Swiper('#e1', {
+        slidesPerView: 2,
+      });
+      var e2 = new Swiper('#e2', {
+        slidesPerView: 'auto',
+      });
+      var e3 = new Swiper('#e3', {
+        slidesPerView: 'auto',
+        direction: 'vertical',
+        keyboardControl: true,
+        mousewheelControl: true,
+        pagination: '#e3 .swiper-pagination',
+        prevButton: '#e3 .swiper-button-prev',
+        nextButton: '#e3 .swiper-button-next',
+        onTransitionEnd: function(swiper) {
+          if(swiper.progress==1) {
+            swiper.activeIndex=swiper.slides.length-1
+          }
+        }
+      })
+    })

@@ -186,42 +186,42 @@ var config = {
         {
           'key': 1,
           'value': 'centeredSlides(:false)',
-          'url': '/swiper'
+          'url': '/swiper/centeredslides'
         },
         {
           'key': 2,
           'value': 'slidesPerView(:1)',
-          'url': '/swiper'
+          'url': '/swiper/slidesperview'
         },
         {
           'key': 3,
           'value': 'slidesPerGroup(:1)',
-          'url': '/swiper'
+          'url': '/swiper/slidespergroup'
         },
         {
           'key': 4,
           'value': 'spaceBetween(:0)',
-          'url': '/swiper'
+          'url': '/swiper/spacebetween'
         },
         {
           'key': 5,
           'value': 'slidesPerColumn(:1)',
-          'url': '/swiper'
+          'url': '/swiper/slidespercolumn'
         },
         {
           'key': 6,
           'value': 'slidesPerColumnFill(:column)',
-          'url': '/swiper'
+          'url': '/swiper/slidespercolumnfill'
         },
         {
           'key': 7,
           'value': 'slidesOffsetBefore(:0)',
-          'url': '/swiper'
+          'url': '/swiper/slidesoffsetbefore'
         },
         {
           'key': 8,
           'value': 'slidesOffsetAfter(:0)',
-          'url': '/swiper'
+          'url': '/swiper/slidesoffsetafter'
         },
       ]
     },
@@ -232,27 +232,27 @@ var config = {
         {
           'key': 1,
           'value': 'effect(:slide)',
-          'url': '/swiper'
+          'url': '/swiper/effect'
         },
         {
           'key': 2,
           'value': 'fade(:)',
-          'url': '/swiper'
+          'url': '/swiper/fade'
         },
         {
           'key': 3,
           'value': 'cube(:)',
-          'url': '/swiper'
+          'url': '/swiper/cube'
         },
         {
           'key': 4,
           'value': 'coverflow(:)',
-          'url': '/swiper'
+          'url': '/swiper/coverflow'
         },
         {
           'key': 5,
           'value': 'flip(:)',
-          'url': '/swiper'
+          'url': '/swiper/flip'
         },
       ]
     },
@@ -263,17 +263,17 @@ var config = {
         {
           'key': 1,
           'value': 'preventClicks(:true)',
-          'url': '/swiper'
+          'url': '/swiper/preventclicks'
         },
         {
           'key': 2,
           'value': 'preventClicksPropagation(:true)',
-          'url': '/swiper'
+          'url': '/swiper/preventclickspropagation'
         },
         {
           'key': 3,
           'value': 'slideToClickedSlide(:false)',
-          'url': '/swiper'
+          'url': '/swiper/slidetoclickedslide'
         },
       ]
     },

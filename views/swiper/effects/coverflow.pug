@@ -1,0 +1,70 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 coverflow
+        p cover flow是类似于苹果将多首歌曲的封面以3D界面的形式显示出来的方式。coverflow效果参数，可选值：
+        p 
+        p rotate: slide做3d旋转时Y轴的旋转角度。默认50。
+        p stretch: 每个slide之间的拉伸值，越大slide考得越紧。默认0。
+        p depth: slide的位置深度。值越大z轴距离越远，看起来越小。默认100。
+        p modifier: depth和rotate和stretch的倍率，相当于depth*modifier、rotate*modifier、stretch*modifier，值越大这三个参数的效果越明显。默认1。
+        p slideShadows: 开启slide阴影。默认true。
+  
+        h4 coverflow参数
+        p 启用版本：<span class="label label-info">3.0.0</span>
+
+        h4 效果演示
+        .desc
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+              .swiper-slide slider4
+              .swiper-slide slider5
+              .swiper-slide slider6
+              .swiper-slide slider7
+              .swiper-slide slider8
+          .swiper-container#e2
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+              .swiper-slide slider4
+              .swiper-slide slider5
+              .swiper-slide slider6
+              .swiper-slide slider7
+              .swiper-slide slider8
+
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var e1 = new Swiper('#e1', {
+        effect : 'coverflow',
+        slidesPerView: 3,
+        centeredSlides: true,
+      });
+      var e2 = new Swiper('#e2', {
+        effect : 'coverflow',
+        slidesPerView: 3,
+        centeredSlides: true,
+        coverflow: {
+          rotate: 30,
+          stretch: 10,
+          depth: 60,
+          modifier: 2,
+          slideShadows: true
+        }
+      });
+    })

@@ -1,0 +1,43 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 slideToClickedSlide
+        p 设置为true则点击slide会过渡到这个slide。
+  
+        h4 slideToClickedSlide参数
+        p 类型：<span class="label label-info">boolean</span> 默认：<span class="label label-info">flase</span> 举例：<span class="label label-info">true</span> 启用版本：<span class="label label-info">3.0.0</span>
+
+        h4 效果演示
+        .desc
+          p 这个列子中点击的slide会居中
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+              .swiper-slide slider4
+              .swiper-slide slider5
+              .swiper-slide slider6
+              .swiper-slide slider7
+              .swiper-slide slider8
+              .swiper-slide slider9
+
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var e1 = new Swiper('#e1', {
+        slidesPerView: 3,
+        slideToClickedSlide  : true,
+      });
+    })

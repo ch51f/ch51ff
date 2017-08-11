@@ -426,4 +426,212 @@ router.all('/freemodesticky', async function(ctx, next) {
   await ctx.render('swiper/freemode/freeModeSticky', {});
 })
 
+router.all('/centeredslides', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 5,
+    menu_s: 1,
+  }
+
+  await ctx.render('swiper/slidesgrid/centeredSlides', {});
+})
+
+router.all('/slidesperview', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 5,
+    menu_s: 2,
+  }
+
+  await ctx.render('swiper/slidesgrid/slidesPerView')
+})
+
+router.all('/slidespergroup', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 5,
+    menu_s: 3,
+  }
+
+  await ctx.render('swiper/slidesgrid/slidesPerGroup')
+})
+
+router.all('/spacebetween', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 5,
+    menu_s: 4,
+  }
+
+  await ctx.render('swiper/slidesgrid/spaceBetween')
+})
+
+router.all('/slidespercolumn', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 5,
+    menu_s: 5,
+  }
+
+  await ctx.render('swiper/slidesgrid/slidesPerColumn')
+})
+
+router.all('/slidespercolumnfill', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 5,
+    menu_s: 6,
+  }
+
+  await ctx.render('swiper/slidesgrid/slidesPerColumnFill')
+})
+
+router.all('/slidesoffsetbefore', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 5,
+    menu_s: 7,
+  }
+
+  await ctx.render('swiper/slidesgrid/slidesOffsetBefore')
+})
+
+router.all('/slidesoffsetafter', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 5,
+    menu_s: 8,
+  }
+
+  await ctx.render('swiper/slidesgrid/slidesOffsetAfter')
+})
+
+router.all('/effect', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 6,
+    menu_s: 1,
+  }
+
+  await ctx.render('swiper/effects/effect')
+})
+
+router.all('/fade', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 6,
+    menu_s: 2,
+  }
+
+  await ctx.render('swiper/effects/fade')
+})
+
+router.all('/cube', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 6,
+    menu_s: 3,
+  }
+
+  await ctx.render('swiper/effects/cube')
+})
+
+router.all('/coverflow', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 6,
+    menu_s: 4,
+  }
+
+  await ctx.render('swiper/effects/coverflow')
+})
+
+router.all('/flip', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 6,
+    menu_s: 5,
+  }
+
+  await ctx.render('swiper/effects/flip')
+})
+
+router.all('/preventclicks', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 7,
+    menu_s: 1,
+  }
+
+  await ctx.render('swiper/clicks/preventClicks')
+})
+
+router.all('/preventclickspropagation', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 7,
+    menu_s: 2,
+  }
+
+  await ctx.render('swiper/clicks/preventClicksPropagation')
+})
+
+router.all('/slidetoclickedslide', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 7,
+    menu_s: 3,
+  }
+
+  await ctx.render('swiper/clicks/slideToClickedSlide')
+})
+
 module.exports = router;
