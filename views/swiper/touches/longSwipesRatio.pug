@@ -1,0 +1,48 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 longSwipesRatio
+        p 进行longSwipes时触发swiper所需要的最小拖动距离比例，即定义longSwipes距离比例。值越大触发Swiper所需距离越大。最大值0.5。
+  
+        h4 longSwipesRatio参数
+        p 类型：<span class="label label-info">number</span> 默认：<span class="label label-info">0.5</span> 举例：<span class="label label-info">0.3</span> 启用版本：<span class="label label-info">3.0.0</span>
+
+        h4 效果演示
+        .desc
+          p 缓慢拖动释放查看效果。
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+          p
+            span.label.label-danger 0.4
+          .swiper-container#e2
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+          p
+            span.label.label-danger 0.1
+
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var e1 = new Swiper('#e1', {
+        longSwipesRatio: 0.4,
+      });
+      var e2 = new Swiper('#e2', {
+        longSwipesRatio: 0.1,
+      });
+    })

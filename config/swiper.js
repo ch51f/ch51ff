@@ -284,87 +284,87 @@ var config = {
         {
           'key': 1,
           'value': 'touchRatio(:1)',
-          'url': '/swiper'
+          'url': '/swiper/touchratio'
         },
         {
           'key': 2,
           'value': 'simulateTouch(:true)',
-          'url': '/swiper'
+          'url': '/swiper/simulatetouch'
         },
         {
           'key': 3,
           'value': 'onlyExternal(:false)',
-          'url': '/swiper'
+          'url': '/swiper/onlyexternal'
         },
         {
           'key': 4,
           'value': 'followFinger(:true)',
-          'url': '/swiper'
+          'url': '/swiper/followfinger'
         },
         {
           'key': 5,
           'value': 'shortSwipes(:true)',
-          'url': '/swiper'
+          'url': '/swiper/shortswipes'
         },
         {
           'key': 6,
           'value': 'longSwipesRatio(:0.5)',
-          'url': '/swiper'
+          'url': '/swiper/longswipesratio'
         },
         {
           'key': 7,
           'value': 'threshold(:false)',
-          'url': '/swiper'
+          'url': '/swiper/threshold'
         },
         {
           'key': 8,
           'value': 'touchAngle(:45)',
-          'url': '/swiper'
+          'url': '/swiper/touchangle'
         },
         {
           'key': 9,
           'value': 'longSwipes(:true)',
-          'url': '/swiper'
+          'url': '/swiper/longswipes'
         },
         {
           'key': 10,
           'value': 'longSwipesMs(:300)',
-          'url': '/swiper'
+          'url': '/swiper/longswipesms'
         },
         {
           'key': 11,
           'value': 'touchMoveStopPropagation(:true)',
-          'url': '/swiper'
+          'url': '/swiper/touchmovestoppropagation'
         },
         {
           'key': 12,
           'value': 'resistance(:true)',
-          'url': '/swiper'
+          'url': '/swiper/resistance'
         },
         {
           'key': 13,
           'value': 'resistanceRatio(:0.85)',
-          'url': '/swiper'
+          'url': '/swiper/resistanceratio'
         },
         {
           'key': 14,
-          'value': 'IOSEdgeSwipeDetection(:false)',
-          'url': '/swiper'
+          'value': 'iOSEdgeSwipeDetection(:false)',
+          'url': '/swiper/iosedgeswipedetection'
         },
         {
           'key': 15,
-          'value': 'IOSEdgeSwipeThreshold(:20)',
-          'url': '/swiper'
+          'value': 'iOSEdgeSwipeThreshold(:20)',
+          'url': '/swiper/iosedgeswipethreshold'
         },
         {
           'key': 16,
           'value': 'passiveListeners(:true)',
-          'url': '/swiper'
+          'url': '/swiper/passivelisteners'
         },
         {
           'key': 17,
           'value': 'touchReleaseOnEdges(:false)',
-          'url': '/swiper'
+          'url': '/swiper/touchReleaseonedges'
         },
       ]
     },

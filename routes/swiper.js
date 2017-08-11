@@ -634,4 +634,225 @@ router.all('/slidetoclickedslide', async function(ctx, next) {
   await ctx.render('swiper/clicks/slideToClickedSlide')
 })
 
+router.all('/touchratio', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 8,
+    menu_s: 1,
+  }
+
+  await ctx.render('swiper/touches/touchRatio')
+})
+
+router.all('/simulatetouch', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 8,
+    menu_s: 2,
+  }
+
+  await ctx.render('swiper/touches/simulateTouch')
+})
+
+router.all('/onlyexternal', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 8,
+    menu_s: 3,
+  }
+
+  await ctx.render('swiper/touches/onlyExternal')
+})
+
+router.all('/followfinger', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 8,
+    menu_s: 4,
+  }
+
+  await ctx.render('swiper/touches/followFinger')
+})
+
+router.all('/shortswipes', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 8,
+    menu_s: 5,
+  }
+
+  await ctx.render('swiper/touches/shortSwipes')
+})
+
+router.all('/longswipesratio', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 8,
+    menu_s: 6,
+  }
+
+  await ctx.render('swiper/touches/longSwipesRatio')
+})
+
+router.all('/threshold', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 8,
+    menu_s: 7,
+  }
+
+  await ctx.render('swiper/touches/threshold')
+})
+
+router.all('/touchangle', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 8,
+    menu_s: 8,
+  }
+
+  await ctx.render('swiper/touches/touchAngle')
+})
+
+router.all('/longswipes', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 8,
+    menu_s: 9,
+  }
+
+  await ctx.render('swiper/touches/longSwipes')
+})
+
+router.all('/longswipesms', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 8,
+    menu_s: 10,
+  }
+
+  await ctx.render('swiper/touches/longSwipesMs')
+})
+
+router.all('/touchmovestoppropagation', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 8,
+    menu_s: 11,
+  }
+
+  await ctx.render('swiper/touches/touchMoveStopPropagation')
+})
+
+router.all('/resistance', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 8,
+    menu_s: 12,
+  }
+
+  await ctx.render('swiper/touches/resistance')
+})
+
+router.all('/resistanceratio', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 8,
+    menu_s: 13,
+  }
+
+  await ctx.render('swiper/touches/resistanceRatio')
+})
+
+router.all('/iosedgeswipedetection', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 8,
+    menu_s: 14,
+  }
+
+  await ctx.render('swiper/touches/iOSEdgeSwipeDetection')
+})
+
+router.all('/iosedgeswipethreshold', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 8,
+    menu_s: 15,
+  }
+
+  await ctx.render('swiper/touches/iOSEdgeSwipeThreshold')
+})
+
+router.all('/passivelisteners', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 8,
+    menu_s: 16,
+  }
+
+  await ctx.render('swiper/touches/passiveListeners')
+})
+
+router.all('/touchReleaseonedges', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 8,
+    menu_s: 17,
+  }
+
+  await ctx.render('swiper/touches/touchReleaseOnEdges')
+})
+
 module.exports = router;

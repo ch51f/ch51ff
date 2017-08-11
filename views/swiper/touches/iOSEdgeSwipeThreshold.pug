@@ -1,0 +1,36 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 iOSEdgeSwipeDetection
+        p IOS的UIWebView环境下的边缘探测距离。如果拖动小于边缘探测距离则不触发swiper。
+
+  
+        h4 iOSEdgeSwipeThreshold参数
+        p 类型：<span class="label label-info">number</span> 默认：<span class="label label-info">20</span> 举例：<span class="label label-info">50</span> 启用版本：<span class="label label-info">3.1.2</span>
+
+        h4 效果演示
+        .desc
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide slider2
+              .swiper-slide slider3
+
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var e1 = new Swiper('#e1', {
+        iOSEdgeSwipeThreshold: 50,
+      });
+    })
