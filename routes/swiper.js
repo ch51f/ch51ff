@@ -855,4 +855,69 @@ router.all('/touchReleaseonedges', async function(ctx, next) {
   await ctx.render('swiper/touches/touchReleaseOnEdges')
 })
 
+router.all('/noswiping', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 9,
+    menu_s: 1,
+  }
+
+  await ctx.render('swiper/swiping/noSwiping')
+})
+
+router.all('/noswipingclass', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 9,
+    menu_s: 2,
+  }
+
+  await ctx.render('swiper/swiping/noSwipingClass')
+})
+
+router.all('/allowswipetonext', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 9,
+    menu_s: 3,
+  }
+
+  await ctx.render('swiper/swiping/allowSwipeToNext')
+})
+
+router.all('/allowswipetoprev', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 9,
+    menu_s: 4,
+  }
+
+  await ctx.render('swiper/swiping/allowSwipeToPrev')
+})
+
+router.all('/swipehandler', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 9,
+    menu_s: 5,
+  }
+
+  await ctx.render('swiper/swiping/swipeHandler')
+})
+
 module.exports = router;

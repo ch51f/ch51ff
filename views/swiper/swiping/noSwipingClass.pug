@@ -1,0 +1,38 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 noSwipingClass
+        p 不可拖动块的类名，当<a href="/swiper/noswiping" target="_blank">noSwiping</a>设置为true时，并且在slide加上此类名，slide无法拖动。
+
+  
+        h4 noSwipingClass参数
+        p 类型：<span class="label label-info">string</span> 默认：<span class="label label-info">swiper-no-swiping</span> 举例：<span class="label label-info">stop-swiping</span> 启用版本：<span class="label label-info">3.0.0</span>
+
+        h4 效果演示
+        .desc
+          p 第二个slide上增加了类stop-swiping。
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide slider1
+              .swiper-slide.stop-swiping slider2
+              .swiper-slide slider3
+
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var e1 = new Swiper('#e1', {
+        noSwiping: true,
+        noSwipingClass: 'stop-swiping'
+      });
+    })

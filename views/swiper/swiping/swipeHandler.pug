@@ -1,0 +1,42 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 swipeHandler
+        p CSS选择器或者HTML元素。你只能拖动它进行swiping。
+
+  
+        h4 swipeHandler参数
+        p 类型：<span class="label label-info">string/HTMLElement</span> 默认：<span class="label label-info">null</span> 举例：<span class="label label-info">swipe-handler</span> 启用版本：<span class="label label-info">3.0.0</span>
+
+        h4 效果演示
+        .desc
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide 
+                p slider1
+                p.swipe-handler 你只能拖动这里
+              .swiper-slide 
+                p slider2
+                p.swipe-handler 你只能拖动这里
+              .swiper-slide 
+                p slider3
+                p.swipe-handler 你只能拖动这里
+
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var e1 = new Swiper('#e1', {
+        swipeHandler: '.swipe-handler',
+      });
+    })

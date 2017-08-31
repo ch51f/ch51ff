@@ -375,27 +375,27 @@ var config = {
         {
           'key': 1,
           'value': 'noSwiping(:true)',
-          'url': '/swiper'
+          'url': '/swiper/noswiping'
         },
         {
           'key': 2,
           'value': 'noSwipingClass(:swiper-no-swiping)',
-          'url': '/swiper'
+          'url': '/swiper/noswipingclass'
         },
         {
           'key': 3,
           'value': 'allowSwipeToNext(:true)',
-          'url': '/swiper'
+          'url': '/swiper/allowswipetonext'
         },
         {
           'key': 4,
           'value': 'allowSwipeToPrev(:true)',
-          'url': '/swiper'
+          'url': '/swiper/allowswipetoprev'
         },
         {
           'key': 5,
           'value': 'swipeHandler(:null)',
-          'url': '/swiper'
+          'url': '/swiper/swipehandler'
         },
       ]
     },
