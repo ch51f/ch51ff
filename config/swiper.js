@@ -406,22 +406,22 @@ var config = {
         {
           'key': 1,
           'value': 'pagination(:null)',
-          'url': '/swiper'
+          'url': '/swiper/pagination'
         },
         {
           'key': 2,
           'value': 'paginationType(:bullets)',
-          'url': '/swiper'
+          'url': '/swiper/paginationtype'
         },
         {
           'key': 3,
           'value': 'paginationClickable(:false)',
-          'url': '/swiper'
+          'url': '/swiper/paginationclickable'
         },
         {
           'key': 4,
           'value': 'paginationHide(:false)',
-          'url': '/swiper'
+          'url': '/swiper/paginationhide'
         },
         {
           'key': 5,

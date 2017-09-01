@@ -1,0 +1,42 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 paginationClickable
+        p 此参数设置为true时，点击分页器的指示点分页器会控制Swiper切换。
+
+  
+        h4 paginationClickable参数
+        p 类型：<span class="label label-info">boolean</span> 默认：<span class="label label-info">false</span> 举例：<span class="label label-info">true</span> 启用版本：<span class="label label-info">3.0.0</span>
+
+        h4 效果演示
+        .desc
+          p 点击那三个小点。
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide 
+                p slider1
+              .swiper-slide 
+                p slider2
+              .swiper-slide 
+                p slider3
+            .swiper-pagination
+
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var e1 = new Swiper('#e1', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+      });
+    })

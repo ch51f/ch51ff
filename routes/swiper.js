@@ -920,4 +920,56 @@ router.all('/swipehandler', async function(ctx, next) {
   await ctx.render('swiper/swiping/swipeHandler')
 })
 
+router.all('/pagination', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 10,
+    menu_s: 1,
+  }
+
+  await ctx.render('swiper/pagination/pagination')
+})
+
+router.all('/paginationtype', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 10,
+    menu_s: 2,
+  }
+
+  await ctx.render('swiper/pagination/paginationType')
+})
+
+router.all('/paginationclickable', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 10,
+    menu_s: 3,
+  }
+
+  await ctx.render('swiper/pagination/paginationClickable')
+})
+
+router.all('/paginationhide', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 10,
+    menu_s: 4,
+  }
+
+  await ctx.render('swiper/pagination/paginationHide')
+})
+
 module.exports = router;
