@@ -972,4 +972,82 @@ router.all('/paginationhide', async function(ctx, next) {
   await ctx.render('swiper/pagination/paginationHide')
 })
 
+router.all('/paginationelement', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 10,
+    menu_s: 5,
+  }
+
+  await ctx.render('swiper/pagination/paginationElement')
+})
+
+router.all('/paginationbulletrender', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 10,
+    menu_s: 6,
+  }
+
+  await ctx.render('swiper/pagination/paginationBulletRender')
+})
+
+router.all('/paginationfractionrender', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 10,
+    menu_s: 7,
+  }
+
+  await ctx.render('swiper/pagination/paginationFractionRender')
+})
+
+router.all('/paginationprogressrender', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 10,
+    menu_s: 8,
+  }
+
+  await ctx.render('swiper/pagination/paginationProgressRender')
+})
+
+router.all('/paginationcustomrender', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 10,
+    menu_s: 9,
+  }
+
+  await ctx.render('swiper/pagination/paginationCustomRender')
+})
+
+router.all('/uniquenavelements', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 10,
+    menu_s: 10,
+  }
+
+  await ctx.render('swiper/pagination/uniqueNavElements')
+})
+
 module.exports = router;

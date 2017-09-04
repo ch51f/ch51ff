@@ -1,0 +1,52 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 paginationBulletRender(index, className)
+        p 渲染分页器小点。这个参数允许完全自定义分页器的指示点。接受指示点索引和指示点类名作为参数。
+
+  
+        h4 paginationBulletRender(index, className)参数
+        p 类型：<span class="label label-info">function</span> 默认：<span class="label label-info">null</span> 启用版本：<span class="label label-info">3.04</span>
+
+        h4 效果演示
+        .desc
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide 
+                p slider1
+              .swiper-slide 
+                p slider2
+              .swiper-slide 
+                p slider3
+              .swiper-slide 
+                p slider4
+              .swiper-slide 
+                p slider5
+              .swiper-slide 
+                p slider6
+              .swiper-slide 
+                p slider7
+            .swiper-pagination
+
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var e1 = new Swiper('#e1', {
+        pagination: '.swiper-pagination',
+        paginationClickable:  true,
+        paginationBulletRender: function(swiper, index, className) {
+          return '<span class="' + className + '">' + (index + 1) + '</span>';
+        }
+      });
+    })

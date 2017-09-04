@@ -1,0 +1,44 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 uniqueNavElements
+        p 独立分页元素，当启用(默认)并且分页元素的传入值为字符串时，swiper会优先查找子元素匹配这些元素。可应用于分页器，按钮和滚动条。
+
+  
+        h4 uniqueNavElements参数
+        p 类型：<span class="label label-info">boolean</span> 默认：<span class="label label-info">true</span> 默认：<span class="label label-info">false</span> 启用版本：<span class="label label-info">3.3.1</span>
+
+        h4 效果演示
+        .desc
+          p 默认为true时，仅本swiper的container内的分页器优先，设置为false后，container以外的分页器也生效了。
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide 
+                p slider1
+              .swiper-slide 
+                p slider2
+              .swiper-slide 
+                p slider3
+            .swiper-pagination
+          .swiper-pagination
+
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var e1 = new Swiper('#e1', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        uniqueNavElements: false,
+      });
+    })

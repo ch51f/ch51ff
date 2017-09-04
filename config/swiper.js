@@ -426,32 +426,32 @@ var config = {
         {
           'key': 5,
           'value': 'paginationElement(:span)',
-          'url': '/swiper'
+          'url': '/swiper/paginationelement'
         },
         {
           'key': 6,
           'value': 'paginationBulletRender(index, className)(:null)',
-          'url': '/swiper'
+          'url': '/swiper/paginationbulletrender'
         },
         {
           'key': 7,
           'value': 'paginationFractionRender()(:null)',
-          'url': '/swiper'
+          'url': '/swiper/paginationfractionrender'
         },
         {
           'key': 8,
           'value': 'paginationProgressRender()(:null)',
-          'url': '/swiper'
+          'url': '/swiper/paginationprogressrender'
         },
         {
           'key': 9,
           'value': 'paginationCustomRender()(:null)',
-          'url': '/swiper'
+          'url': '/swiper/paginationcustomrender'
         },
         {
           'key': 10,
           'value': 'uniqueNavElements(:true)',
-          'url': '/swiper'
+          'url': '/swiper/uniquenavelements'
         },
       ]
     },
