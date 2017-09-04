@@ -1,0 +1,44 @@
+.todo-box {
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  margin: 20px auto;
+  // padding: 20px;
+  width: 500px;
+}
+
+.todo-head {
+  height: 100px;
+  padding: 20px;
+}
+
+.todo-con {
+  border-top: 1px solid #aaa;
+  // height: 400px;
+  // overflow-y: auto;
+}
+
+.todo-item {
+  cursor: pointer;
+  padding: 10px 50px 10px 20px;
+  border-bottom: 1px solid #aaa;
+  position: relative;
+}
+.todo-item:last-child {
+  border-bottom: 0;
+}
+.todo-item .check {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  margin-top: -10px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+}
+.todo-item.active {
+  text-decoration: line-through;
+}
+.todo-item.active .check {
+  border-color: #f20;
+}

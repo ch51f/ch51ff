@@ -1,0 +1,21 @@
+extends ../layout
+
+block style
+  link(rel='stylesheet', href='/css/todo.css')
+block content
+  .container
+    .row
+      .col-md-12
+        .todo-box#todo-box
+          .todo-head
+            .form-group
+              input.form-control(type="todo" id="todo" placeholder="输入待办")
+            .text-right
+              .btn-group.btn-group-xs
+                button.btn.btn-default(type="button")#clear 清空已完成待办
+          .todo-con
+            each item in todos
+              div(data-id=`${item.id}` class='todo-item' class={active: item.status === 1}) #{item.todo}
+                .check
+block script
+  script(src="/js/todo.js")
