@@ -36,7 +36,7 @@ router.all('/add', async function(ctx, next) {
 		ctx.body = JSON.stringify({
 			result: false,
 			msg: '添加todo时报错',
-			data: [],
+			data: e,
 		})
 	}
 })
@@ -64,7 +64,7 @@ router.all('/done', async function(ctx, next) {
 		ctx.body = JSON.stringify({
 			result: false,
 			msg: '更新todo状态失败',
-			data: [],
+			data: e,
 		})
 	}
 })
@@ -92,7 +92,7 @@ router.all('/undone', async function(ctx, next) {
 		ctx.body = JSON.stringify({
 			result: false,
 			msg: '更新todo状态失败',
-			data: [],
+			data: e,
 		})
 	}
 })
@@ -120,7 +120,7 @@ router.all('/delete', async function(ctx, next) {
 		ctx.body = JSON.stringify({
 			result: false,
 			msg: '删除todo状态失败',
-			data: [],
+			data: e,
 		})
 	}
 })
@@ -138,7 +138,7 @@ router.all('/deleteAll', async function(ctx, next) {
  	}
 
 	try {
-		var res = await p.query('UPDATE todo SET delete_flag = 1 where id in  [' + params.id + '];')
+		var res = await p.query('UPDATE todo SET delete_flag = 1 where id in  (' + params.ids + ');')
 		ctx.body = JSON.stringify({
 			result: true,
 			data: res,
@@ -148,7 +148,7 @@ router.all('/deleteAll', async function(ctx, next) {
 		ctx.body = JSON.stringify({
 			result: false,
 			msg: '删除todo状态失败',
-			data: [],
+			data: e,
 		})
 	}
 })

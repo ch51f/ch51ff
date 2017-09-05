@@ -1,0 +1,53 @@
+extends ../../layout
+
+block style
+  link(rel='stylesheet/less', href='/lib/swiper/css/swiper.min.css')
+  link(rel='stylesheet/less', href='/css/my.swiper.css')
+block content
+  include ../../component/navbar.pug
+  .container
+    .row
+      .col-md-3
+        include ../component/menu.pug
+      .col-md-9
+        h2 prevButton
+        p 前进按钮的css选择器或HTML元素。
+
+  
+        h4 prevButton参数
+        p 类型：<span class="label label-info">string/HTMLElement</span> 默认：<span class="label label-info">null</span> 举例：<span class="label label-info">swiper-button-prev</span> 启用版本：<span class="label label-info">3.0.0</span>
+
+        h4 效果演示
+        .desc
+          .swiper-container#e1
+            .swiper-wrapper
+              .swiper-slide 
+                p slider1
+              .swiper-slide 
+                p slider2
+              .swiper-slide 
+                p slider3
+            .swiper-button-prev
+            .swiper-button-next
+          p 修改箭头的颜色：除了默认的蓝色箭头外，Swiper还内置了白色和黑色两种箭头颜色，如需其他颜色可更改css样式,详见下方示例。后退按钮同效。
+          div
+            pre.
+              &lt;!-- 修改箭头颜色示范 --&gt;
+              &lt;div class="swiper-button-next swiper-button-white"&gt;&lt;/div&gt; &lt;!-- 白色 --&gt; 
+              &lt;div class="swiper-button-next swiper-button-black"&gt;&lt;/div&gt; &lt;!-- 黑色 --&gt; 
+              &lt;style&gt; 
+              /*Swiper原样式 */ 
+              .swiper-button-next{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E"); 
+              /*改变了颜色和加粗的样式*/ 
+              .swiper-button-next{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L5%2C44l-4.2-4.2L18.6%2C22L0.8%2C4.2L5%2C0z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E"); 
+              &lt;/style&gt;
+block script
+  script(src="/lib/swiper/js/swiper.jquery.min.js")
+  script(src="/js/my.swiper.js")
+  script.
+    $(function() {
+      var e1 = new Swiper('#e1', {
+        prevButton: '.swiper-button-prev',
+        nextButton: '.swiper-button-next',
+      });
+    })

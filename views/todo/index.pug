@@ -13,7 +13,7 @@ block content
             .text-right
               .btn-group.btn-group-xs
                 button.btn.btn-default(type="button")#clear 清空已完成待办
-          .todo-con
+          .todo-con#list
             each item in todos
               div(data-id=`${item.id}` class='todo-item' class={active: item.status === 1}) #{item.todo}
                 .check

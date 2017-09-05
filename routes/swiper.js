@@ -1050,4 +1050,30 @@ router.all('/uniquenavelements', async function(ctx, next) {
   await ctx.render('swiper/pagination/uniqueNavElements')
 })
 
+router.all('/nextbutton', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 11,
+    menu_s: 1,
+  }
+
+  await ctx.render('swiper/buttons/nextButton')
+})
+
+router.all('/prevbutton', async function(ctx, next) {
+  ctx.state = {
+    title: 'swiper 学习',
+    navbar_cur: 1,
+    navbar: navbar,
+    menu: menu,
+    menu_f: 11,
+    menu_s: 2,
+  }
+
+  await ctx.render('swiper/buttons/prevButton')
+})
+
 module.exports = router;

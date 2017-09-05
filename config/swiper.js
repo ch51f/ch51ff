@@ -462,12 +462,12 @@ var config = {
         {
           'key': 1,
           'value': 'nextButton(:null)',
-          'url': '/swiper'
+          'url': '/swiper/nextbutton'
         },
         {
           'key': 2,
           'value': 'prevButton(:null)',
-          'url': '/swiper'
+          'url': '/swiper/prevbutton'
         },
       ]
     },
