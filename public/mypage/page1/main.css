@@ -1,0 +1,19 @@
+body {
+  background: url('/asset/edu8-1.jpg') repeat;
+}
+.header {
+  // background-image: linear-gradient(to right, #5040b2 0%, #7a69e6 100%);
+  // height: 800px;
+  // position: relative;
+  // z-index: 1;
+}
+.canvas {
+  // position: absolute;
+  // left: 0; top: 0;
+  border: 1px solid #aaa;
+  display: block;
+  margin: 50px auto;
+  // width: 800px;
+  // height: 600px;
+  // z-index: 2;
+}
