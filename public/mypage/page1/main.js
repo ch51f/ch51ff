@@ -272,13 +272,50 @@
   // context.quadraticCurveTo(256, 43, 458, 336);
   // context.stroke();
 
-  drawPrairie(context);
-  drawSky(context);
-  for(var i = 0; i < 5; i++) {
-    var x0 = 500 * Math.random() + 50;
-    var y0 = 200 * Math.random() + 50;
-    var c0 = 100 * Math.random() + 50;
-    drawCloud(context, x0, y0, c0);
+  // drawPrairie(context);
+  // drawSky(context);
+  // for(var i = 0; i < 5; i++) {
+  //   var x0 = 500 * Math.random() + 50;
+  //   var y0 = 200 * Math.random() + 50;
+  //   var c0 = 100 * Math.random() + 50;
+  //   drawCloud(context, x0, y0, c0);
+  // }
+
+  // context.fillStyle = "#00AAAA";
+  // context.fillRect(100, 100, 200, 100);
+
+  // context.fillStyle = "red";
+  // context.translate(100, 100);
+  // context.fillRect(100, 100, 200, 100);
+
+  // context.fillStyle = "#00AAAA";
+  // context.fillRect(100, 100, 200, 100);
+
+  // context.save();
+  // context.fillStyle = "red";
+  // context.translate(100, 100);
+  // context.fillRect(100, 100, 200, 100);
+  // context.restore();
+
+  // context.save();
+  // context.fillStyle = "green";
+  // context.translate(200, 200);
+  // context.fillRect(100, 100, 200, 100);
+  // context.restore();
+
+  for(var i = 0; i <= 12; i++) {
+    context.save();
+    context.translate( 70 + i * 50, 50 + i * 40);
+    context.fillStyle = "#00AAAA";
+    context.fillRect(0, 0, 20, 20);
+    context.restore();
+
+    context.save();
+    context.translate(70 + i * 50, 50 + i * 40);
+    context.rotate(i * 30 * Math.PI / 180);
+    context.fillStyle = "red";
+    context.fillRect(0, 0, 20, 20);
+    context.restore();
   }
 })(jQuery)
 
