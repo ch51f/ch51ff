@@ -303,18 +303,36 @@
   // context.fillRect(100, 100, 200, 100);
   // context.restore();
 
-  for(var i = 0; i <= 12; i++) {
-    context.save();
-    context.translate( 70 + i * 50, 50 + i * 40);
-    context.fillStyle = "#00AAAA";
-    context.fillRect(0, 0, 20, 20);
-    context.restore();
+  // for(var i = 0; i <= 12; i++) {
+  //   context.save();
+  //   context.translate( 70 + i * 50, 50 + i * 40);
+  //   context.fillStyle = "#00AAAA";
+  //   context.fillRect(0, 0, 20, 20);
+  //   context.restore();
 
+  //   context.save();
+  //   context.translate(70 + i * 50, 50 + i * 40);
+  //   context.rotate(i * 30 * Math.PI / 180);
+  //   context.fillStyle = "red";
+  //   context.fillRect(0, 0, 20, 20);
+  //   context.restore();
+  // }
+
+  // for(var i = 1; i <= 10; i++) {
+  //   context.save();
+  //   context.translate(400, 300);
+  //   context.rotate(36 * i * Math.PI / 180);
+  //   context.fillStyle = "rgba(255, 0, 0 , 0.25)";
+  //   context.fillRect(0, -200, 200, 200);
+  //   context.restore();
+  // }
+
+  context.strokeStyle = "red";
+  context.lineWidth = 5;
+  for(var i = 1; i < 4; i++) {
     context.save();
-    context.translate(70 + i * 50, 50 + i * 40);
-    context.rotate(i * 30 * Math.PI / 180);
-    context.fillStyle = "red";
-    context.fillRect(0, 0, 20, 20);
+    context.scale(i, i);
+    context.strokeRect(50, 50, 150, 100);
     context.restore();
   }
 })(jQuery)
