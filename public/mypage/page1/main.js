@@ -445,23 +445,109 @@
   //   context.arc(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 100, 0, Math.PI * 2);
   //   context.fill();
   // }
-  context.globalCompositeOperation = "source-out";
-  context.globalAlpha = 0.5;
+  // context.globalCompositeOperation = "source-out";
+  // context.globalAlpha = 0.5;
 
-  for(var i = 0; i <= 50; i++) {
-    var R = Math.floor(Math.random() * 255);
-    var G = Math.floor(Math.random() * 255);
-    var B = Math.floor(Math.random() * 255);
+  // for(var i = 0; i <= 50; i++) {
+  //   var R = Math.floor(Math.random() * 255);
+  //   var G = Math.floor(Math.random() * 255);
+  //   var B = Math.floor(Math.random() * 255);
 
-    context.fillStyle = "rgb(" + R + ',' + G + "," + B + ")";
+  //   context.fillStyle = "rgb(" + R + ',' + G + "," + B + ")";
 
-    context.beginPath();
-    context.arc(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 100, 0, Math.PI * 2);
-    context.fill();
+  //   context.beginPath();
+  //   context.arc(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 100, 0, Math.PI * 2);
+  //   context.fill();
 
-  }
+  // }
+
+  // context.fillStyle = "black";
+  // context.fillRect(10, 10, 200, 200);
+  // context.save();
+  // context.beginPath();
+
+  // context.rect(0, 0, 50, 50);
+  // context.clip();
+
+  // context.beginPath();
+  // context.strokeStyle = "red";
+  // context.lineWidth = 5;
+  // context.arc(100, 100, 100, 0, Math.PI * 2, false);
+  // context.stroke();
+  // context.closePath();
+
+  // context.restore();
+
+  // context.beginPath();
+  // context.rect(0, 0, 500, 500);
+  // context.clip();
+
+  // context.beginPath();
+  // context.strokeStyle = "blue";
+  // context.lineWidth = 5;
+  // context.arc(100, 100, 50, 0, Math.PI * 2, false);
+  // context.stroke();
+  // context.closePath();
+
+  // var img = new Image();
+  // img.src = "/asset/20-1.jpg";
+  // img.onload = function() {
+  //   context.drawImage(img, 200, 50);
+  // }
+
+  // context.beginPath();
+  // context.moveTo(400, 260);
+  // context.bezierCurveTo(450, 220, 450, 300, 400, 315);
+  // context.bezierCurveTo(350, 300, 350, 220, 400, 260);
+  // context.clip();
+  // context.closePath();
+
+  // var img = new Image();
+  // img.src = "/asset/20-1.jpg";
+  // img.onload = function() {
+  //   context.drawImage(img, 348, 240, 100, 100);
+  // }
+
+  // context.shadowColor = "#545454";
+  // context.shadowOffsetX = 5;
+  // context.shadowOffsetY = 5;
+  // context.shadowBlur = 2;
+
+  // context.arc(400, 300, 200, 0, Math.PI * 2, false);
+  // context.arc(400, 300, 240, 0, Math.PI * 2, true);
+  // context.fillStyle = "#00AAAA";
+  // context.fill();
+
+  context.beginPath();
+  context.rect(200, 100, 400, 400);
+  drawPathRect(context, 250, 150, 300, 150);
+  drawPathTriangle(context, 345, 350, 420, 450, 270, 450);
+  context.arc(500, 400, 50, 0, Math.PI * 2, true);
+  context.closePath();
+
+  context.fillStyle = "#058";
+  context.shadowColor = "gray";
+  context.shadowOffsetX = 10;
+  context.shadowOffsetY = 10;
+  context.shadowBlur = 10;
+  context.fill();
 
 })(jQuery)
+
+function drawPathRect(ctx, x, y, w, h) {
+  ctx.moveTo(x, y);
+  ctx.lineTo(x, y + h);
+  ctx.lineTo(x + w, y + h);
+  ctx.lineTo(x + w, y);
+  ctx.lineTo(x, y);
+}
+
+function drawPathTriangle(ctx, x1, y1, x2, y2, x3, y3) {
+  ctx.moveTo(x1, y1);
+  ctx.lineTo(x3, y3);
+  ctx.lineTo(x2, y2);
+  ctx.lineTo(x1, y1);
+}
 
 function drawRect(ctx, x, y, w, h, fillColor, borderWidth, borderColor) {
   ctx.beginPath();
