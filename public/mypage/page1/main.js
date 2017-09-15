@@ -327,14 +327,140 @@
   //   context.restore();
   // }
 
-  context.strokeStyle = "red";
-  context.lineWidth = 5;
-  for(var i = 1; i < 4; i++) {
-    context.save();
-    context.scale(i, i);
-    context.strokeRect(50, 50, 150, 100);
-    context.restore();
+  // context.strokeStyle = "red";
+  // context.lineWidth = 5;
+  // for(var i = 1; i < 4; i++) {
+  //   context.save();
+  //   context.scale(i, i);
+  //   context.strokeRect(50, 50, 150, 100);
+  //   context.restore();
+  // }
+
+  // context.fillStyle = "yellow";
+  // context.strokeStyle = "#00AAAA";
+  // context.lineWidth = 5;
+
+  // context.save();
+  // context.transform(1, 0, 0, 1, 300, 200);
+  // context.transform(2, 0, 0, 1.5, 0, 0);
+  // context.transform(1, -0.1, 0.1, 1, 0, 0);
+  // context.fillRect(0, 0, 200, 200);
+  // context.strokeRect(0, 0, 200, 200);
+  // context.restore();
+
+  // context.fillStyle = "yellow";
+  // context.fillRect(200, 100, 250, 100);
+
+  // context.setTransform(1, 0.5, -0.5, 1, 30, 10);
+  // context.fillStyle = "red";
+  // context.fillRect(200, 100, 250, 100);
+
+  // context.setTransform(1, 0.5, -0.5, 1, 30, 10);
+  // context.fillStyle = "blue";
+  // context.fillRect(200, 100, 250, 100);
+
+  // context.font = "50px serif";
+  // context.fillStyle = "#00AAAA";
+  // context.fillText("《CANVAS--Draw on the Web》", 50, 300);
+
+  // context.beginPath();
+  // context.font = "50px Verdana";
+  // var gradient = context.createLinearGradient(0, 0, 800, 0);
+  // gradient.addColorStop("0", "magenta");
+  // gradient.addColorStop("0.5", "blue");
+  // gradient.addColorStop("1", "red");
+  // context.fillStyle = gradient;
+  // context.strokeStyle = "#00AAAA";
+  // context.strokeText("airingursb.github.io", 50, 100);
+  // context.fillText("airingursb.github.io", 50, 200);
+
+  // context.fillText("airingursb.github.io", 50, 300, 200);
+
+  // context.beginPath();
+  // var img = new Image();
+  // img.src = "/asset/edu8-1.jpg";
+  // img.onload = function() {
+  //   var pattern = context.createPattern(img, "repeat");
+  //   context.fillStyle = pattern;
+  //   context.fillText("airingursb.github.io", 50, 400);
+  // }
+
+  // context.strokeStyle = "blue";
+  // context.moveTo(400, 100);
+  // context.lineTo(400, 500);
+  // context.stroke();
+
+  // context.fillStyle = "#000";
+  // context.font="50px Arial";
+
+  // context.textAlign = "start";
+  // context.fillText("textAlign=start", 400, 120);
+  // context.textAlign = "end";
+  // context.fillText("textAlign=end", 400, 200);
+  // context.textAlign = "left";
+  // context.fillText("textAlign=left", 400, 280);
+  // context.textAlign = "center";
+  // context.fillText("textAlign=center", 400, 360);
+  // context.textAlign = "right";
+  // context.fillText("textAlign=right", 400, 440);
+
+  // context.strokeStyle = "blue";
+  // context.moveTo(0, 300);
+  // context.lineTo(800, 300);
+  // context.stroke();
+
+  // context.fillStyle = "#00AAAA";
+  // context.font = "20px Arial";
+
+  // context.textBaseline = "top";
+  // context.fillText("Top", 150, 300);
+  // context.textBaseline = "bottom";
+  // context.fillText("Bottom", 250, 300);
+  // context.textBaseline = "middle";
+  // context.fillText("Middle", 350, 300);
+  // context.textBaseline = "alphabetic";
+  // context.fillText("Alphabetic", 450, 300);
+  // context.textBaseline = "hanging";
+  // context.fillText("Hanging", 550, 300);
+
+  // context.textAlign = "center";
+  // context.textBaseline = "middle";
+
+  // context.fillStyle = "#00AAAA";
+  // context.font = "20px Arial";
+  // var txt = "Hello canvas";
+  // context.fillText("width:" + context.measureText(txt).width, 400, 300);
+  // context.fillText(txt, 400, 250);
+
+  // context.globalAlpha = 0.5;
+
+  // for(var i = 0; i <= 50; i++) {
+  //   var R = Math.floor(Math.random() * 255);
+  //   var G = Math.floor(Math.random() * 255);
+  //   var B = Math.floor(Math.random() * 255);
+
+  //   context.fillStyle = "rgb(" + R + "," + G + "," + B + ")";
+
+  //   context.beginPath();
+  //   context.arc(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 100, 0, Math.PI * 2);
+  //   context.fill();
+  // }
+  context.globalCompositeOperation = "source-out";
+  context.globalAlpha = 0.5;
+
+  for(var i = 0; i <= 50; i++) {
+    var R = Math.floor(Math.random() * 255);
+    var G = Math.floor(Math.random() * 255);
+    var B = Math.floor(Math.random() * 255);
+
+    context.fillStyle = "rgb(" + R + ',' + G + "," + B + ")";
+
+    context.beginPath();
+    context.arc(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 100, 0, Math.PI * 2);
+    context.fill();
+
   }
+
 })(jQuery)
 
 function drawRect(ctx, x, y, w, h, fillColor, borderWidth, borderColor) {
