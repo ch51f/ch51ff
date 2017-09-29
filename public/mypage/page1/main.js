@@ -518,19 +518,21 @@
   // context.fillStyle = "#00AAAA";
   // context.fill();
 
-  context.beginPath();
-  context.rect(200, 100, 400, 400);
-  drawPathRect(context, 250, 150, 300, 150);
-  drawPathTriangle(context, 345, 350, 420, 450, 270, 450);
-  context.arc(500, 400, 50, 0, Math.PI * 2, true);
-  context.closePath();
+  // context.beginPath();
+  // context.rect(200, 100, 400, 400);
+  // drawPathRect(context, 250, 150, 300, 150);
+  // drawPathTriangle(context, 345, 350, 420, 450, 270, 450);
+  // context.arc(500, 400, 50, 0, Math.PI * 2, true);
+  // context.closePath();
 
-  context.fillStyle = "#058";
-  context.shadowColor = "gray";
-  context.shadowOffsetX = 10;
-  context.shadowOffsetY = 10;
-  context.shadowBlur = 10;
-  context.fill();
+  // context.fillStyle = "#058";
+  // context.shadowColor = "gray";
+  // context.shadowOffsetX = 10;
+  // context.shadowOffsetY = 10;
+  // context.shadowBlur = 10;
+  // context.fill();
+
+  context.clearRect(0, 0, canvas.width, canvas.height);
 
 })(jQuery)
 
@@ -546,7 +548,7 @@ function drawPathTriangle(ctx, x1, y1, x2, y2, x3, y3) {
   ctx.moveTo(x1, y1);
   ctx.lineTo(x3, y3);
   ctx.lineTo(x2, y2);
-  ctx.lineTo(x1, y1);
+  ctx.lineTo(x1, y1);  
 }
 
 function drawRect(ctx, x, y, w, h, fillColor, borderWidth, borderColor) {

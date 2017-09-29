@@ -1,0 +1,12 @@
+extends ../layout/default
+
+block style
+  link(rel="stylesheet", href="/mypage/page2/page2.css")
+  
+block content
+  .cards
+    - for (var x = 1; x < 11; x++)
+      .card
+        .card-face
+          .card-label= x
+block script
