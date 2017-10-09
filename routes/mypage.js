@@ -28,6 +28,28 @@ router.all('/page4', async function(ctx, next) {
   await ctx.render('mypage/page4', {});
 })
 
+router.all('/page5', async function(ctx, next) {
+  ctx.state = {
+    title: 'page5'
+  }
+  await ctx.render('mypage/page5', {});
+})
+
+router.all('/page6', async function(ctx, next) {
+  ctx.state = {
+    title: 'page6'
+  }
+  await ctx.render('mypage/page6', {});
+})
+
+
+router.all('/page7', async function(ctx, next) {
+  ctx.state = {
+    title: 'page7'
+  }
+  await ctx.render('mypage/page7', {});
+})
+
 
 router.all('/canvas', async function(ctx, next) {
   ctx.state = {

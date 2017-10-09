@@ -1,0 +1,20 @@
+extends ../layout/default
+
+block style
+  link(rel="stylesheet", href="/mypage/page5/page5.css")
+block content
+  h1.o-title--primary Corner Border Links
+  ul.c-links#demo
+    li.btn--corners
+      a(href="javascript:;" data-number="one") portfolio
+    li.btn--corners
+      a(href="javascript:;" data-number="two") portfolio
+    li.btn--corners
+      a(href="javascript:;" data-number="three") portfolio
+    li.btn--corners
+      a(href="javascript:;" data-number="four") portfolio
+    li.btn--corners
+      a(href="javascript:;" data-number="five") portfolio
+  a.btn--primary(href="#demo") How?
+block script
+  //- script(src="/mypage/page4/page4.js")
