@@ -76,7 +76,7 @@ Vector.prototype = {
     return this.x * this.x + this.y * this.y;
   },
 
-  noramlize: function() {
+  normalize: function() {
     var m = Math.sqrt(this.x * this.x + this.y * this.y);
     if(m) {
       this.x /= m;
@@ -223,7 +223,7 @@ GravityPoint.prototype = (function(o) {
         this.radius = Math.sqrt((area + garea) / Math.PI);
       }
 
-      g.addSpeed(vector.sub(this, g).normalize().scale(this.gravity));
+      g.addSpeed(Vector.sub(this, g).normalize().scale(this.gravity));
     }
 
     if(GravityPoint.interferenceToPoint && !this.dragging)
@@ -252,7 +252,7 @@ GravityPoint.prototype = (function(o) {
 
     r = Math.random() * this.currentRadius * 0.7 + this.currentRadius * 0.3;
     grd = ctx.createRadialGradient(this.x, this.y, r, this.x, this.y, this.currentRadius);
-    grd.addColorStor(0, 'rgba(0, 0, 0, 1');
+    grd.addColorStop(0, 'rgba(0, 0, 0, 1');
     grd.addColorStop(1, Math.random() < 0.2 ? 'rgba(255, 196, 0, 0.15)' : 'rgba(103, 181, 191, 0.75)');
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.currentRadius, 0, Math.PI * 2, false);
@@ -288,7 +288,7 @@ Particle.prototype = (function(o) {
 
     this._latest.set(this);
     this.add(this._speed);
-  }
+  },
 
   render: function(ctx) {
     if(this._speed.length() > 12)
@@ -311,3 +311,193 @@ Particle.prototype = (function(o) {
     ctx.restore();
   }
 });
+
+// Initialize
+(function() {
+  // Configs
+
+  var BACKGROUND_COLOR        = 'rgba(11, 51, 56, 1)',
+      PARTICLE_RADIUS         = 1,
+      G_POINT_RADIUS          = 10,
+      G_POINT_RADIUS_LIMITS   = 65;
+
+  // Vars
+
+  var canvas, context, bufferCvs, bufferCtx, screenWidth, screenHeight,
+      mouse = new Vector(), gravities = [], particles = [], grad, gui, control;
+
+  // Event Listeners
+
+  function resize(e) {
+    screenWidth = canvas.width = window.innerWidth;
+    screenHeight = canvas.height = window.innerHeight;
+    bufferCvs.width = screenWidth;
+    bufferCvs.height = screenHeight;
+    context = canvas.getContext('2d');
+    bufferCtx = bufferCvs.getContext('2d');
+
+    var cx = canvas.width * 0.5,
+        cy = canvas.height * 0.5;
+
+    grad = context.createRadialGradient(cx, cy, 0, cx, cy, Math.sqrt(cx * cx + cy * cy));
+    grad.addColorStop(0, 'rgba(0, 0, 0, 0');
+    grad.addColorStop(1, 'rgba(0, 0, 0, 0.35)');
+  }
+
+  function mouseMove(e) {
+    mouse.set(e.clientX, e.clientY);
+
+    var i, g, hit = false;
+    for(i = gravities.length -1; i >= 0; i--) {
+      g = gravities[i];
+      if((!hit && g.hitTest(mouse)) || g.dragging)
+        g.isMouseOver = hit = true;
+      else
+        g.isMouseOver = false;
+    }
+
+    canvas.style.cursor = hit ? 'pointer' : 'default';
+  }
+
+  function mouseDown(e) {
+    for(var i = gravities.length - 1; i >= 0; i--) {
+      if(gravities[i].isMouseOver) {
+        gravities[i].startDrag(mouse);
+        return;
+      }
+    }
+    gravities.push(new GravityPoint(e.clientX, e.clientY, G_POINT_RADIUS, {
+      particles: particles,
+      gravities: gravities
+    }));
+  }
+
+  function mouseUp(e) {
+    for(var i = 0, len = gravities.length; i < len; i++) {
+      if(gravities[i].dragging) {
+        gravities[i].endDrag();
+        break;
+      }
+    }
+  }
+
+  function doubleClick(e) {
+    for(var i = gravities.length - 1; i >= 0; i--) {
+      if(gravities[i].isMouseOver) {
+        gravities[i].collapse();
+        break;
+      }
+    }
+  }
+
+  // Functions
+  function addParticle(num) {
+    var i, p;
+    for(i = 0; i < num; i++) {
+      p = new Particle(
+        Math.floor(Math.random() * screenWidth - PARTICLE_RADIUS * 2) + 1 + PARTICLE_RADIUS,
+        Math.floor(Math.random() * screenHeight - PARTICLE_RADIUS * 2) + 1 + PARTICLE_RADIUS,
+        PARTICLE_RADIUS
+      );
+      p.addSpeed(Vector.random());
+      particles.push(p);
+    }
+  }
+
+  function removeParticle(num) {
+    if(particles.length < num) num = particles.length;
+    for(var i = 0; i < num; i++) {
+      particles.pop();
+    }
+  }
+
+  // GUI Control
+  control = {
+    particleNum: 100
+  };
+
+  // Init
+  canvas = document.getElementById('c');
+  bufferCvs = document.createElement('canvas');
+
+  window.addEventListener('resize', resize, false);
+  resize(null);
+
+  addParticle(control.particleNum);
+
+  canvas.addEventListener('mousemove', mouseMove, false);
+  canvas.addEventListener('mousedown', mouseDown, false);
+  canvas.addEventListener('mouseup', mouseUp, false);
+  canvas.addEventListener('dblclick', doubleClick, false);
+
+  // GUI
+  gui = new dat.GUI();
+  gui.add(control, 'particleNum', 0, 500).step(1).name('Particle Num')
+    .onChange(function() {
+      var n = (control.particleNum | 0) - particles.length;
+      if(n > 0)
+        addParticle(n)
+      else if (n < 0)
+        removeParticle(-n);
+    });
+  gui.add(GravityPoint, 'interferenceToPoint').name('Interference Between Point');
+  gui.close();
+
+  // Start Update
+  var loop = function() {
+    var i, len, g, p;
+    context.save();
+    context.fillStyle = BACKGROUND_COLOR;
+    context.fillRect(0, 0, screenWidth, screenHeight);
+    context.fillStyle = grad;
+    context.fillRect(0, 0, screenWidth, screenHeight);
+    context.restore();
+
+    for(i = 0, len = gravities.length; i< len; i++) {
+      g = gravities[i];
+      if(g.dragging) g.drag(mouse);
+      g.render(context);
+      if(g.destroyed) {
+        gravities.splice(i, 1);
+        len--;
+        i--;
+      }
+    }
+
+    bufferCtx.save();
+    bufferCtx.globalCompositeOperation = 'destination-out';
+    bufferCtx.globalAlpha = 0.35;
+    bufferCtx.fillRect(0, 0, screenWidth, screenHeight);
+    bufferCtx.restore();
+
+    // for(i = 0, len = particles.length; i < len; i++) {
+    //   particles[i].render(bufferCtx);
+    // }
+    len = particles.length;
+    bufferCtx.save();
+    bufferCtx.fillStyle = bufferCtx.strokeStyle = "#fff";
+    bufferCtx.lineCap = bufferCtx.lineJoin = 'round';
+    bufferCtx.lineWidth = PARTICLE_RADIUS * 2;
+    bufferCtx.beginPath();
+    for(i = 0; i < len; i++) {
+      p = particles[i];
+      p.update();
+      bufferCtx.moveTo(p.x, p.y);
+      bufferCtx.lineTo(p._latest.x, p._latest.y);
+    }
+    bufferCtx.stroke();
+    bufferCtx.beginPath();
+    for(i = 0; i < len; i++) {
+      p = particles[i];
+      bufferCtx.moveTo(p.x, p.y);
+      bufferCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2, false);
+    }
+    bufferCtx.fill();
+    bufferCtx.restore();
+
+    context.drawImage(bufferCvs, 0, 0);
+
+    requestAnimationFrame(loop);
+  };
+  loop();
+})();
