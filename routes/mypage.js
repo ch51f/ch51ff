@@ -50,6 +50,13 @@ router.all('/page7', async function(ctx, next) {
   await ctx.render('mypage/page7', {});
 })
 
+router.all('/page8', async function(ctx, next) {
+  ctx.state = {
+    title: 'page8'
+  }
+  await ctx.render('mypage/page8', {});
+})
+
 
 router.all('/canvas', async function(ctx, next) {
   ctx.state = {

@@ -1,0 +1,13 @@
+extends ../layout/default
+
+block style
+  link(rel="stylesheet", href="/mypage/page8/page8.css")
+block content
+  p#offscreen-text.offscreen-text
+  p#text.text
+  svg#svg
+  input#input.input(type="text")
+block script
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/easing/EasePack.min.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenLite.min.js")
+  script(src="/mypage/page8/page8.js")
