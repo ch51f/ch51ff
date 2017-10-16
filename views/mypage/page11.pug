@@ -1,0 +1,16 @@
+extends ../layout/default
+
+block style
+  link(rel="stylesheet", href="/mypage/page11/page11.css")
+block content
+  .wrap-loader
+    .loader
+      - for (var i = 1; i <= 4; i++)
+        .box
+      .wrap-text
+        .text
+          each val in ['L', 'O', 'A', 'D', "I", 'N', 'G', '...']
+            span= val
+    .loader-text wait place
+block script
+  //- script(src="/mypage/page11/page11.js")

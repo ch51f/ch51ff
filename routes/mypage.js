@@ -1,62 +1,15 @@
 var router = require('koa-router')();
 
-router.all('/page1', async function(ctx, next) {
-  ctx.state = {
-    title: 'page1',
+router.all('/page/:id', async function(ctx, next) {
+  let {id} = ctx.params;
+  if(id) {
+    ctx.body = '404';
   }
-  await ctx.render('mypage/page1', {});
-});
-
-router.all('/page2', async function(ctx, next) {
   ctx.state = {
-    title: 'page2'
+    title: `page${id}`
   }
-  await ctx.render('mypage/page2', {});
+  await ctx.render(`mypage/page${id}`, {});
 })
-
-router.all('/page3', async function(ctx, next) {
-  ctx.state = {
-    title: 'page3'
-  }
-  await ctx.render('mypage/page3', {});
-})
-
-router.all('/page4', async function(ctx, next) {
-  ctx.state = {
-    title: 'page4'
-  }
-  await ctx.render('mypage/page4', {});
-})
-
-router.all('/page5', async function(ctx, next) {
-  ctx.state = {
-    title: 'page5'
-  }
-  await ctx.render('mypage/page5', {});
-})
-
-router.all('/page6', async function(ctx, next) {
-  ctx.state = {
-    title: 'page6'
-  }
-  await ctx.render('mypage/page6', {});
-})
-
-
-router.all('/page7', async function(ctx, next) {
-  ctx.state = {
-    title: 'page7'
-  }
-  await ctx.render('mypage/page7', {});
-})
-
-router.all('/page8', async function(ctx, next) {
-  ctx.state = {
-    title: 'page8'
-  }
-  await ctx.render('mypage/page8', {});
-})
-
 
 router.all('/canvas', async function(ctx, next) {
   ctx.state = {
