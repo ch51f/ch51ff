@@ -19,4 +19,19 @@ router.get('haha', async function(ctx, next) {
 	await ctx.render('index', {});
 })
 
+router.get('mytest', async function(ctx, next) {
+  ctx.state = {
+    title: '我的测试页面'
+  };
+
+  await ctx.render('mytest', {})
+})
+router.get('mytest1', async function(ctx, next) {
+  ctx.state = {
+    title: '我的测试页面'
+  };
+
+  await ctx.render('mytest1', {})
+})
+
 module.exports = router;

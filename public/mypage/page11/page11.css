@@ -70,32 +70,32 @@ body {
 }
 .loader .box:nth-child(2) {
   top: 0;
-  left: 0;
+  right: 0;
 }
 .loader .box:nth-child(2)::before {
   top: 50%;
-  left: 50%;
+  right: 50%;
   background: #33A753;
   -webkit-animation: lightMe2 4s ease-out infinite normal;
           animation: lightMe2 4s ease-out infinite normal;
 }
 .loader .box:nth-child(3) {
-  top: 0;
-  left: 0;
+  bottom: 0;
+  right: 0;
 }
 .loader .box:nth-child(3)::before {
-  top: 50%;
-  left: 50%;
+  bottom: 50%;
+  right: 50%;
   background: #FABB04;
   -webkit-animation: lightMe3 4s ease-out infinite normal;
           animation: lightMe3 4s ease-out infinite normal;
 }
 .loader .box:nth-child(4) {
-  top: 0;
+  bottom: 0;
   left: 0;
 }
 .loader .box:nth-child(4)::before {
-  top: 50%;
+  bottom: 50%;
   left: 50%;
   background: #E94234;
   -webkit-animation: lightMe4 4s ease-out infinite normal;
@@ -121,7 +121,7 @@ body {
           animation: slider 8s ease-in infinite;
 }
 .loader .text span {
-  dispath: block;
+  display: block;
   width: 40px;
   height: 40px;
   line-height: 40px;
@@ -135,8 +135,8 @@ body {
           transform: translateY(-2rem);
   letter-spacing: 6px;
   opacity: .2;
-  -webkit-animation: blick 1s ease-out infinite alternate;
-          animation: blick 1s ease-out infinite alternate;
+  -webkit-animation: blink 1s ease-out infinite alternate;
+          animation: blink 1s ease-out infinite alternate;
 }
 @-webkit-keyframes lightMe1 {
   0% {

@@ -71,6 +71,7 @@ body {
     .generate-child(4);
     .generate-child(@n, @i: 1) when (@i <= @n) {
       &:nth-child(@{i}) {
+        // top left top right bottom right bottom left
         top: 0;
         left: 0;
         &::before {
@@ -103,7 +104,7 @@ body {
     line-height: @letterDim;
     animation: slider @letterSpeed @letterEasing infinite;
     span {
-      dispath: block;
+      display: block;
       width: @letterDim;
       height: @letterDim;
       line-height: @letterDim;
@@ -119,7 +120,7 @@ body {
   transform: translateY(-2rem);
   letter-spacing: 6px;
   opacity: .2;
-  animation: blick @speed/4 @easing infinite alternate;
+  animation: blink @speed/4 @easing infinite alternate;
 }
 
 // Animations
