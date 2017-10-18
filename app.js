@@ -17,6 +17,7 @@ const article = require('./routes/article');
 const swiper = require('./routes/swiper');
 const temple = require('./routes/temple');
 const mypage = require('./routes/mypage');
+const temp = require('./routes/temp');
 
 // middlewares
 app.use(convert(bodyparser));
@@ -48,6 +49,7 @@ router.use('/article', article.routes(), article.allowedMethods());
 router.use('/swiper', swiper.routes(), swiper.allowedMethods());
 router.use('/temple', temple.routes(), temple.allowedMethods());
 router.use('/mypage', mypage.routes(), mypage.allowedMethods());
+router.use('/temp', temp.routes(), temp.allowedMethods());
 
 app.use(router.routes(), router.allowedMethods());
 // response

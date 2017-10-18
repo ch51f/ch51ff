@@ -2,8 +2,9 @@ var router = require('koa-router')();
 
 router.all('/page/:id', async function(ctx, next) {
   let {id} = ctx.params;
-  if(id) {
+  if(!id) {
     ctx.body = '404';
+    return
   }
   ctx.state = {
     title: `page${id}`
