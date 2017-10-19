@@ -1,4 +1,17 @@
 doctype html
+mixin barlink(name, active)
+  li(class=active ? 'active' : "")
+    a(href="javascript:;")= name
+mixin panel2item(i, name, ...items)
+  .item
+    i(class="i-"+i)
+    h4= name
+    each item in items
+      p= item
+mixin panel1item(i, name, txt)
+  .item(class='item-'+i)
+    h4.h4= name
+    p.em= txt
 html
   head
     meta(charset="utf-8")
@@ -6,23 +19,17 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1")
     title= title
     link(rel='stylesheet', href='/mytemp/p0.0.1/main.css')
-  body
+  bodyz
     .header
       .top-bar
         .container.clearfix
           ul.bar-box.clearfix
-            li.active
-              a(href="javascript:;") 首页
-            li
-              a(href="javascript:;") 服务系统
-            li
-              a(href="javascript:;") 行业案例
-            li
-              a(href="javascript:;") 商学院
-            li
-              a(href="javascript:;") 关于我们
-            li
-              a(href="javascript:;") 免费诊断
+            +barlink('首页', 1)
+            +barlink('服务系统')
+            +barlink('行业案例')
+            +barlink('商学院')
+            +barlink('关于我们')
+            +barlink('免费诊断')
       .banner
     .content
       .panel-1
@@ -30,65 +37,21 @@ html
           h3.h3 互联网营销，您是否遇到这样的困惑点
           .box
             i.icon_1
-            .item.item-1
-              h4.h4 做了网站，却没有带来品牌效应？
-              p.em ----您的网站真的合格吗？
-            .item.item-2
-              h4.h4 做了网站，却没有带来品牌效应？
-              p.em ----您的网站真的合格吗？
-            .item.item-3
-              h4.h4 选择互联网平台的时候感觉很盲目？
-              p.em ----什么平台才是合适的？
-            .item.item-4
-              h4.h4 做了很多互联网营销尝试，却没转化？
-              p.em ----是不是方式和渠道不对呢？
+            +panel1item('1', '做了网站，却没有带来品牌效应？', '----您的网站真的合格吗？')
+            +panel1item('2', '做了网站，却没有带来品牌效应？', '----您的网站真的合格吗？')
+            +panel1item('3', '选择互联网平台的时候感觉很盲目？', '----什么平台才是合适的？')
+            +panel1item('4', '做了很多互联网营销尝试，却没转化？', '----是不是方式和渠道不对呢？')
       .panel-2
         .container
           h3.h3 互联网营销服务系统
           p.blod 让您的潜在客户主动找到您
           .box.clearfix
-            .item
-              i.i-1
-              h4 网站建设
-              p 网站策划
-              p 网站设计与搭建
-              p 域名备案
-              p 更新维护
-            .item
-              i.i-2
-              h4 SEO优化
-              p 网站诊断
-              p 网站结构优化
-              p 网站排名优化
-              p 品牌关键词优化
-            .item
-              i.i-3
-              h4 搜索引擎覆盖
-              p 品牌信息覆盖
-              p 百科营销
-              p 搜索问答营销
-              p 内容策划
-            .item
-              i.i-4
-              h4 自媒体推广
-              p 平台策划
-              p 营销内容策划与推送
-              p 平台维护
-              p 粉丝管理
-            .item
-              i.i-5
-              h4 社群推广
-              p 平台策划
-              p 推广策划
-              p 营销内容策划与推送
-              p 数据维护
-            .item
-              i.i-6
-              h4 b2b平台营销
-              p 平台策划
-              p 推广策划
-              p 营销内容策划与推送
-              p 数据维护
+            +panel2item('1', '网站建设', '网站策划', '网站设计与搭建', '域名备案', '更新维护')
+            +panel2item('2', 'SEO优化', '网站诊断', '网站结构优化', '网站排名优化', '品牌关键词优化')
+            +panel2item('3', '搜索引擎覆盖', '品牌信息覆盖', '百科营销', '搜索问答营销', '内容策划')
+            +panel2item('4', '自媒体推广', '平台策划', '营销内容策划与推送', '平台维护', '粉丝管理')
+            +panel2item('5', '社群推广', '平台策划', '推广策划', '营销内容策划与推送', '数据维护')
+            +panel2item('6', 'b2b平台营销', '平台策划', '推广策划', '营销内容策划与推送', '数据维护')
       .panel-3
       .panel-4
         .container
@@ -106,18 +69,12 @@ html
           p.qq 投诉客户QQ：xxxxxxxxxxxx
         .bottom-bar
           ul.bar-box.clearfix
-            li
-              a(href="javascript:;") 首页
-            li
-              a(href="javascript:;") 服务系统
-            li
-              a(href="javascript:;") 行业案例
-            li
-              a(href="javascript:;") 商学院
-            li
-              a(href="javascript:;") 关于我们
-            li
-              a(href="javascript:;") 免费诊断
+            +barlink('首页')
+            +barlink('服务系统')
+            +barlink('行业案例')
+            +barlink('商学院')
+            +barlink('关于我们')
+            +barlink('免费诊断')
         .copyright
           p 版权所有xxxxxxx
           p 滇ICP备xxxxxxx号-x
