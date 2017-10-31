@@ -34,4 +34,24 @@ router.get('mytest1', async function(ctx, next) {
   await ctx.render('mytest1', {})
 })
 
+router.get('study', async function(ctx, next) {
+  ctx.state = {
+    title: '系统规划与管理师资料'
+  };
+
+  await ctx.render('study/main', {})
+})
+
+router.get('study/:id', async function(ctx, next) {
+  let {id} = ctx.params;
+  if(!id) {
+    ctx.body = '404';
+    return
+  }
+  ctx.state = {
+    title: `学习资料-${id}`
+  }
+  await ctx.render(`study/${id}`, {});
+})
+
 module.exports = router;
