@@ -1,0 +1,14 @@
+extends ../layout/default
+
+block style
+  link(rel="stylesheet", href="/mypage/page13/page13.css")
+block content
+  ul.deleteList
+    - for (var x = 1; x < 4; x++)
+      li
+        span List item #{x}
+        .delete <svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="10"></circle></svg>
+
+
+block script
+  script(src="/mypage/page13/page13.js")
