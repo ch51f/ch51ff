@@ -1,0 +1,373 @@
+body {
+  background: #111;
+  // background: linear-gradient(to bottom, rgba(0, 0, 20, 1) 0%, rgba(0, 0, 0, 1) 100%);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  font-family: 'Anton', sans-serif;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+div {
+  position: absolute;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  pointer-events: none;
+}
+
+@colorRain: linear-gradient(to bottom, rgba(200, 200, 200, 0) 0%, rgba(200, 200, 200, 1) 70%, rgba(200, 200, 200, 0) 100%);
+@colorLight: rgba(255, 255, 255, 0.5);
+@colorGlass: rgba(200, 255, 230, 0.1);
+@colorWall: rgba(0, 0, 0, 1);
+@colorWallDepth: rgba(50, 50, 50, 1);
+@windowWidth: 200px;
+@windowHeight: 300px;
+@frameWidth: 20px;
+@windowDepth: 20px;
+@overSize: 9999px;
+
+.interface {
+  top: 0;
+  width: 10%;
+  height: 100%;
+  // background: red;
+  pointer-events: auto;
+  
+  // @for $i from 1 through 10 {
+  //   &:nth-child(#{$i}) {
+  //     left: ($i - 1) * 10%;
+      
+  //     &:hover ~ .window {
+  //       transform: rotateY(-50 + $i * 10deg) rotateX(0deg);
+  //     }
+  //   }
+  // }
+
+}
+
+.window {
+  width: 100%;
+  height: 100%;
+  transition: 1000ms cubic-bezier(0.170, 0.935, 0.305, 1.000);
+  // display: none;
+  // animation: rotate 6000ms ease-in-out infinite alternate;
+}
+
+.light {
+  top: calc(~'50% - @{windowHeight} / 2');
+  left: calc(~'50% - @{windowWidth} / 2');
+  width: @windowWidth;
+  height: @windowHeight;
+  transform-origin: 50% 100%;
+  transform: translateY(@windowHeight / 1.5) translateZ(@windowHeight / 3) rotateX(-90deg);
+  backface-visibility: visible;
+
+  &_ref {
+
+  }
+}
+
+
+
+// body {
+//   background: #111;
+//   // background: linear-gradient(to bottom, rgba(0, 0, 20, 1) 0%, rgba(0, 0, 0, 1) 100%);
+//   height: 100vh;
+//   overflow: hidden;
+//   display: flex;
+//   font-family: 'Anton', sans-serif;
+//   justify-content: center;
+//   align-items: center;
+//   perspective: 1000px;
+// }
+
+// div {
+//   position: absolute;
+//   transform-style: preserve-3d;
+//   backface-visibility: hidden;
+//   pointer-events: none;
+// }
+
+// $colorRain: linear-gradient(to bottom, rgba(200, 200, 200, 0) 0%, rgba(200, 200, 200, 1) 70%, rgba(200, 200, 200, 0) 100%);
+// $colorLight: rgba(255, 255, 255, 0.5);
+// $colorGlass: rgba(200, 255, 230, 0.1);
+// $colorWall: rgba(0, 0, 0, 1);
+// $colorWallDepth: rgba(50, 50, 50, 1);
+// $windowWidth: 200px;
+// $windowHeight: 300px;
+// $frameWidth: 20px;
+// $windowDepth: 20px;
+// $overSize: 9999px;
+
+// .interface {
+//   top: 0;
+//   width: 10%;
+//   height: 100%;
+//   // background: red;
+//   pointer-events: auto;
+  
+//   @for $i from 1 through 10 {
+//     &:nth-child(#{$i}) {
+//       left: ($i - 1) * 10%;
+      
+//       &:hover ~ .window {
+//         transform: rotateY(-50 + $i * 10deg) rotateX(0deg);
+//       }
+//     }
+//   }
+// }
+
+// .window {
+//   width: 100%;
+//   height: 100%;
+//   transition: 1000ms cubic-bezier(0.170, 0.935, 0.305, 1.000);
+//   // display: none;
+//   // animation: rotate 6000ms ease-in-out infinite alternate;
+// }
+
+// .light {
+//   top: calc(50% - #{$windowHeight} / 2);
+//   left: calc(50% - #{$windowWidth} / 2);
+//   width: $windowWidth;
+//   height: $windowHeight;
+//   transform-origin: 50% 100%;
+//   transform: translateY($windowHeight / 1.5) translateZ($windowHeight / 3) rotateX(-90deg);
+//   backface-visibility: visible;
+  
+//   &_ref {
+//     width: $windowWidth / 2 - $frameWidth / 2;
+//     height: $windowHeight / 2 - $frameWidth / 2;
+//     background: $colorLight;
+//     backface-visibility: visible;
+    
+//     &_2 {
+//       right: 0;
+//     }
+    
+//     &_3 {
+//       bottom: 0;
+//     }
+    
+//     &_4 {
+//       right: 0;
+//       bottom: 0;
+//     }
+//   }
+// }
+
+// .wall {
+//   width: 100%;
+//   height: 100%;
+//   // display: none;
+  
+//   &_glass {
+//     top: calc(50% - #{$windowHeight} / 2);
+//     left: calc(50% - #{$windowWidth} / 2);
+//     width: $windowWidth;
+//     height: $windowHeight;
+//     background: $colorGlass;
+//     transform: translateZ($windowDepth / -2);
+//   }
+
+//   &_top {
+//     top: calc(50% - #{$overSize} - #{$windowHeight} / 2);
+//     width: $overSize;
+//     height: $overSize;
+//     background: $colorWall;
+  
+//     &::before {
+//       content: '';
+//       position: absolute;
+//       bottom: 0;
+//       width: 100%;
+//       height: $windowDepth;
+//       background: $colorWallDepth;
+//       transform-origin: 0 100%;
+//       transform: rotateX(90deg);
+//     }
+//   }
+  
+//   &_right {
+//     left: calc(50% + #{$windowWidth} / 2);
+//     width: $overSize;
+//     height: $overSize;
+//     background: $colorWall;
+    
+//     &::before {
+//       content: '';
+//       position: absolute;
+//       width: $windowDepth;
+//       height: 100%;
+//       background: $colorWallDepth;
+//       transform-origin: 0 0;
+//       transform: rotateY(90deg);
+//     }
+//   }
+  
+//   &_bottom {
+//     top: calc(50% + #{$windowHeight} / 2);
+//     width: $overSize;
+//     height: $overSize;
+//     background: $colorWall;
+    
+//     &::before {
+//       content: '';
+//       position: absolute;
+//       width: 100%;
+//       height: $windowDepth;
+//       background: $colorWallDepth;
+//       transform-origin: 0 0;
+//       transform: rotateX(-90deg);
+//     }
+//   }
+  
+//   &_left {
+//     left: calc(50% - #{$overSize} - #{$windowWidth} / 2);
+//     width: $overSize;
+//     height: $overSize;
+//     background: $colorWall;
+
+//     &::before {
+//       content: '';
+//       position: absolute;
+//       right: 0;
+//       width: $windowDepth;
+//       height: 100%;
+//       background: $colorWallDepth;
+//       transform-origin: 100% 0;
+//       transform: rotateY(-90deg);
+//     }
+//   }
+  
+//   &_vertical {
+//     top: calc(50% - #{$windowHeight} / 2);
+//     left: calc(50% - #{$frameWidth} / 2);
+//     width: $frameWidth;
+//     height: $windowHeight;
+//     background: $colorWall;
+    
+//     &::before {
+//       content: '';
+//       position: absolute;
+//       width: $windowDepth;
+//       height: 100%;
+//       background: $colorWallDepth;
+//       transform-origin: 0 0;
+//       transform: rotateY(90deg);
+//     }
+    
+//     &::after {
+//       content: '';
+//       position: absolute;
+//       right: 0;
+//       width: $windowDepth;
+//       height: 100%;
+//       background: $colorWallDepth;
+//       transform-origin: 100% 0;
+//       transform: rotateY(-90deg);
+//     }
+//   }
+  
+//   &_horizontal {
+//     top: calc(50% - #{$frameWidth} / 2);
+//     left: calc(50% - #{$windowWidth} / 2);
+//     width: $windowWidth;
+//     height: $frameWidth;
+//     background: $colorWall;
+    
+//     &::before {
+//       content: '';
+//       position: absolute;
+//       width: 100%;
+//       height: $windowDepth;
+//       background: $colorWallDepth;
+//       transform-origin: 0 0;
+//       transform: rotateX(-90deg);
+//     }
+    
+//     &::after {
+//       content: '';
+//       position: absolute;
+//       bottom: 0;
+//       width: 100%;
+//       height: $windowDepth;
+//       background: $colorWallDepth;
+//       transform-origin: 0 100%;
+//       transform: rotateX(90deg);
+//     }
+//   }
+// }
+
+// .mask {
+//   width: 100%;
+//   height: 100%;
+//   transform: translateZ(1px);
+//   // display: none;
+  
+//   &_right {
+//     left: calc(50% + #{$windowWidth});
+//     width: 100%;
+//     height: 100%;
+//     background: $colorWall;
+//   }
+  
+//   &_left {
+//     left: calc(50% - 100% - #{$windowWidth});
+//     width: 100%;
+//     height: 100%;
+//     background: $colorWall;
+//   }
+// }
+
+// .rain {
+//   width: 100%;
+//   height: 100%;
+//   transform: translateZ(-$windowDepth * 3) rotateZ(0deg);
+
+//   &_line {
+//     width: 1px;
+//     height: 100%;
+
+//     @for $i from 1 through 150 {
+//       &:nth-child(#{$i}) {
+//         left: random(100) + 0%;
+//         $depth: random(1000);
+//         transform: translateZ($depth * -1px);
+//         opacity: (1001 - $depth) / 1000;
+        
+//         .drop {
+//           width: 100%;
+//           height: random(50) + 30px;
+//           background: $colorRain;
+//           animation: drop random(200) + 1000ms random(2000) * -1ms linear infinite;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @keyframes drop {
+//   0% {
+//     transform: translateY(0vh);
+//   }
+  
+//   50% {
+//     transform: translateY(100vh);
+//   }
+  
+//   100% {
+//     transform: translateY(100vh);
+//   }
+// }
+
+// @keyframes rotate {
+//   0% {
+//     transform: rotateY(50deg);
+//   }
+  
+//   100% {
+//     transform: rotateY(-50deg);
+//   }
+// }

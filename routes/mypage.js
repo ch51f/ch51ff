@@ -1,5 +1,12 @@
 var router = require('koa-router')();
 
+router.all('/', async function(ctx, next) {
+  ctx.state = {
+    title: '列表'
+  }
+  await ctx.render('mypage/list', {})
+})
+
 router.all('/page/:id', async function(ctx, next) {
   let {id} = ctx.params;
   if(!id) {

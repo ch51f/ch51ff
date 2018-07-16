@@ -1,0 +1,31 @@
+extends ../layout/default
+
+block style
+  link(rel="stylesheet", href="/mypage/page15/page15.css")
+block content
+  -for (i = 0; i < 10; i++)
+    .interface
+  .mask
+    .mask_left
+    .mask_right
+  .window
+    .rain
+      - for (i = 0; i < 150; i++)
+        .rain_line
+          .drop
+    .wall
+      .wall_glass
+      .wall_top
+      .wall_right
+      .wall_bottom
+      .wall_left
+      .wall_vertical
+      .wall_horizontal
+    .light
+      .light_ref.light_ref_1
+      .light_ref.light_ref_2
+      .light_ref.light_ref_3
+      .light_ref.light_ref_4
+
+
+block script

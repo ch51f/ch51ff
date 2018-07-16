@@ -1,0 +1,12 @@
+extends ../layout/default
+
+block style
+  
+block content
+  .container
+    .list-group
+      - var list = ["undefined", "画布", "书签", "轮播", "线条", "按钮", "图标", "点", "文字", "switch", "点", "loading", "bar", "delete list"];
+      - for (var x = 1; x <= 13; x++)
+        a.list-group-item(href="/mypage/page/" + x) #{list[x]}
+
+block script

@@ -1,0 +1,14 @@
+extends ../layout/default
+
+block style
+  link(rel="stylesheet", href="/mypage/page14/page14.css")
+block content
+  div
+    - for (var x = 1; x < 4; x++)
+      - checked = x == 1 ? true : false
+      label.radio
+        input(type="radio" name="r" value=x checked=checked)
+        span Radio ##{x}
+
+
+block script
